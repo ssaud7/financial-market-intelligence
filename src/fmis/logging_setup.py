@@ -1,0 +1,63 @@
+"""Structured logging shared by every stage.
+
+Console output stays human-readable for the terminal, while a JSONL copy of
+every event is appended under ``evidence/logs/`` so a completed run leaves
+behind machine-readable proof of what happened — including the rejection reason
+for each quarantined record.
+"""
+
+from __future__ import annotations
+
+import logging
+import sys
+from pathlib import Path
+
+import structlog
+
+from fmis.config import settings
+
+_CONFIGURED = False
+
+
+def configure_logging(stage: str, level: int = logging.INFO) -> structlog.BoundLogger:
+    """Configure structlog once per process and return a stage-bound logger."""
+    global _CONFIGURED
+
+    if not _CONFIGURED:
+        log_dir: Path = settings.evidence_root / "logs"
+        log_dir.mkdir(parents=True, exist_ok=True)
+
+        # Console handler: pretty. File handler: one JSON object per line.
+        console = logging.StreamHandler(sys.stdout)
+        console.setFormatter(
+            logging.Formatter("%(message)s"),
+        )
+        file_handler = logging.FileHandler(log_dir / f"{stage}.jsonl", encoding="utf-8")
+        file_handler.setFormatter(logging.Formatter("%(message)s"))
+
+        root = logging.getLogger()
+        root.handlers.clear()
+        root.addHandler(console)
+        root.addHandler(file_handler)
+        root.setLevel(level)
+
+        # Quieten the noisy dependencies so pipeline events stay readable.
+        for noisy in ("py4j", "pyspark", "urllib3", "httpx", "chromadb", "great_expectations"):
+            logging.getLogger(noisy).setLevel(logging.WARNING)
+
+        structlog.configure(
+            processors=[
+                structlog.contextvars.merge_contextvars,
+                structlog.processors.add_log_level,
+                structlog.processors.TimeStamper(fmt="iso", utc=True),
+                structlog.processors.StackInfoRenderer(),
+                structlog.processors.format_exc_info,
+                structlog.processors.JSONRenderer(),
+            ],
+            wrapper_class=structlog.make_filtering_bound_logger(level),
+            logger_factory=structlog.stdlib.LoggerFactory(),
+            cache_logger_on_first_use=True,
+        )
+        _CONFIGURED = True
+
+    return structlog.get_logger().bind(stage=stage)
