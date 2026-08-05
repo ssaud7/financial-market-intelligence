@@ -1,6 +1,9 @@
 {
   "name": "Financial Market Intelligence System",
-  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bookworm",
+
+  // Built rather than pulled: the upstream Python image carries a stale yarn
+  // apt key that breaks every Feature's apt-get update. See Dockerfile.
+  "build": { "dockerfile": "Dockerfile" },
 
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
