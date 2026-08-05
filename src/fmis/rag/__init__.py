@@ -7,9 +7,10 @@
 ``rerank``    cross-encoder reranking of the fused candidates
 ``answer``    grounded generation with inline citations, on a local Ollama model
 ``pipeline``  the full chain, with a recorded evidence trail per query
+
+Nothing is re-exported here on purpose. ``index`` pulls in ChromaDB and
+sentence-transformers, so an eager re-export would make ``import
+fmis.rag.chunker`` — or any CLI command that merely mentions the package — pay
+several seconds of import cost for a dependency it does not use. Import from the
+submodule you actually need.
 """
-
-from fmis.rag.index import build_index
-from fmis.rag.pipeline import answer_question, run_demo
-
-__all__ = ["build_index", "answer_question", "run_demo"]
