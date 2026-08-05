@@ -13,11 +13,15 @@ Built for the **SDAIA Academy** capstone *Modern Data Engineering for AI Systems
 
 ## The problem this solves
 
-An investment analyst asking "is NVDA extended relative to its trend, and what supply-chain
-risk does its own 10-K disclose?" is asking two questions that normally live in two
-unrelated systems. The quantitative half needs a governed time-series warehouse; the
+An investment analyst asking "is CRWD extended relative to its 30-day trend, and what
+supply-chain risk does its own 10-K disclose?" is asking two questions that normally live in
+two unrelated systems. The quantitative half needs a governed time-series warehouse; the
 qualitative half needs semantic search over hundreds of pages of dense legal prose. Neither
 is useful if the underlying data is silently wrong.
+
+The two halves are deliberately pointed at the **same 16 companies** — every ticker streamed
+into the lakehouse also has a 10-K in the RAG index — so a single question can be answered
+end to end instead of by two demos that never meet.
 
 This project builds both halves on shared infrastructure and shared guarantees:
 
@@ -127,14 +131,21 @@ works offline once dependencies are pulled.
 
 ### Datasets
 
-Both are gitignored — download them yourself and drop them in `data/raw/`:
+Both are gitignored — download them yourself and drop the `.zip` files in `data/raw/`.
+Archives are unpacked automatically and the layout is detected from the files themselves,
+so nothing needs renaming.
 
-1. **S&P 500 Stocks — Daily Historical Data** (Kaggle). Any CSV with Date, Symbol, Open,
-   High, Low, Close, Volume columns works; the loader detects the file by its header rather
-   than its name.
-2. **SEC EDGAR Annual Financial Filings** (Kaggle), or raw 10-K submissions from
-   [SEC EDGAR](https://www.sec.gov/edgar/search/). `.txt`, `.htm` and `.html` are all
-   handled, and `.zip` archives are unpacked automatically.
+1. **S&P 500 Stocks — 10 Year Daily Historical Data** (Kaggle). Ships as ~501 per-ticker
+   CSVs in `yfinance` format: a three-row header (`Price` / `Ticker` / `Date`), columns
+   ordered **Close, High, Low, Open, Volume**, and no adjusted close. The loader also
+   handles the alternative single wide `sp500_stocks.csv` layout with `Date`/`Symbol`
+   columns.
+2. **SEC EDGAR Annual Financial Filings — 2021** (Kaggle). 191 10-K filings as inline-XBRL
+   `.htm` plus a `.json` sidecar per filing carrying clean metadata and the Items already
+   separated (`item_1`, `item_1A`, `item_7`, …). The sidecars are the preferred path —
+   regex-slicing section boundaries out of 7 MB of generated XBRL markup is far less
+   reliable. Raw `.txt`/`.htm` submissions pulled straight from
+   [SEC EDGAR](https://www.sec.gov/edgar/search/) are handled by a fallback parser.
 
 ---
 
@@ -248,12 +259,13 @@ of an upsert on the ticker business key, rather than an overwrite wearing a MERG
 
 `make rag` — an answer that cites its sources:
 
-> Several companies identify concentration risk from single-source suppliers [S2], and
-> note that component shortages have constrained production volumes [S1][S4]...
+> Several filings identify dependence on third-party suppliers and manufacturing partners
+> as a material risk [S2], and note that component shortages have constrained hardware
+> availability [S1][S4]...
 >
 > **Sources**
-> `[S1]` AAPL 10-K 2021 · Item 1A Risk Factors — `aapl-10k-2021.txt`
-> `[S2]` MSFT 10-K 2021 · Item 1A Risk Factors — `msft-10k-2021.txt`
+> `[S1]` CROWDSTRIKE HOLDINGS, INC. 10-K 2021 · Item 1A Risk Factors — `1535527_10K_2021_...htm`
+> `[S2]` MICROSOFT CORP 10-K 2021 · Item 1A Risk Factors — `789019_10K_2021_...htm`
 
 Every run writes machine-readable evidence to `evidence/`:
 
@@ -316,8 +328,10 @@ the caller's working directory, so an Airflow task and a manual run write to the
 | `KAFKA_BOOTSTRAP_SERVERS` | `localhost:9092` | Broker address |
 | `KAFKA_TOPIC_QUOTES` / `_DLQ` | `market.quotes.raw` / `.dlq` | Source and dead-letter topics |
 | `PRODUCER_CORRUPTION_RATE` | `0.08` | Fraction of payloads deliberately corrupted. `0.0` for a clean run. |
-| `PRODUCER_TICKERS` | 10 symbols | Universe to stream |
+| `PRODUCER_TICKERS` | 16 symbols | Universe to stream — the companies that also have a 10-K in the corpus |
 | `OLLAMA_MODEL` | `qwen2.5:7b-instruct-q4_K_M` | Generator. Use `llama3.2:3b-instruct-q4_K_M` for speed. |
+| `RAG_FILING_LIMIT` | `25` | Filings to index. `0` indexes all 191, at a much longer embedding cost. |
+| `RAG_PREFERRED_COMPANIES` | 16 names | Indexed first regardless of length, so prices and filings cover the same firms |
 | `RAG_DENSE_TOP_K` / `RAG_SPARSE_TOP_K` | `30` / `30` | Candidates per retriever |
 | `RAG_RRF_K` | `60` | RRF damping constant |
 | `RAG_RERANK_TOP_N` | `6` | Passages shown to the model |
@@ -341,7 +355,7 @@ Codespaces is CPU-only. Approximate timings on a 4-core / 16 GB machine:
 | --- | --- |
 | Produce + consume 25k quotes | ~90 s |
 | Bronze → Silver → Gold | ~3 min (most of it Spark startup) |
-| Index ~10 filings | ~4 min (embedding is the bottleneck) |
+| Index 25 filings (~5,800 chunks) | ~5 min (embedding is the bottleneck) |
 | One RAG answer | 1–3 min on a 7B model, ~30 s on a 3B |
 
 Set `OLLAMA_MODEL=llama3.2:3b-instruct-q4_K_M` while iterating; use the 7B for the run you

@@ -43,7 +43,13 @@ class Settings(BaseSettings):
     # ---- Ingestion -------------------------------------------------------
     producer_corruption_rate: float = Field(default=0.08, ge=0.0, le=1.0)
     producer_max_records: int = Field(default=25_000, gt=0)
-    producer_tickers: str = "AAPL,MSFT,NVDA,AMZN,GOOGL,META,JPM,XOM,UNH,PG"
+    # Chosen so the streamed universe and the indexed filing corpus describe the
+    # SAME companies — otherwise the two halves of the system never meet and a
+    # question like "is CRWD extended, and what risk does its 10-K disclose?"
+    # cannot be answered end to end.
+    producer_tickers: str = (
+        "MSFT,ORCL,ADBE,CRM,NOW,INTU,PLTR,CRWD,DDOG,FTNT,WDAY,ADSK,SNPS,CDNS,PAYC,TYL"
+    )
 
     # ---- RAG -------------------------------------------------------------
     # Generation runs against a local Ollama server — no API key, no egress.
@@ -61,6 +67,17 @@ class Settings(BaseSettings):
     # comfortably under that without needing a tokenizer at split time.
     rag_chunk_chars: int = 1600
     rag_chunk_overlap_chars: int = 250
+    # The Kaggle corpus is ~190 filings averaging ~160k characters of indexable
+    # prose. Embedding all of it on a CPU-only Codespace takes far longer than
+    # it adds, so the richest N are indexed by default. Set 0 for no limit.
+    rag_filing_limit: int = 25
+    # Companies whose filings are indexed first, regardless of length. These are
+    # the ones that also have price history in the streamed universe, which is
+    # what lets a single question span the lakehouse and the filing corpus.
+    rag_preferred_companies: str = (
+        "MICROSOFT,ORACLE,ADOBE,SALESFORCE,SERVICENOW,INTUIT,PALANTIR,CROWDSTRIKE,"
+        "DATADOG,FORTINET,WORKDAY,AUTODESK,SYNOPSYS,CADENCE,PAYCOM,TYLER"
+    )
     rag_dense_top_k: int = 30
     rag_sparse_top_k: int = 30
     rag_rrf_k: int = 60
@@ -96,6 +113,14 @@ class Settings(BaseSettings):
     @property
     def tickers(self) -> list[str]:
         return [t.strip().upper() for t in self.producer_tickers.split(",") if t.strip()]
+
+    @property
+    def preferred_companies(self) -> list[str]:
+        return [
+            c.strip().upper()
+            for c in self.rag_preferred_companies.split(",")
+            if c.strip()
+        ]
 
     @property
     def bronze_path(self) -> Path:
