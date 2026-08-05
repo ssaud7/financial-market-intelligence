@@ -89,6 +89,43 @@ def ensure_topics() -> None:
             else:
                 raise
 
+    # Creation returns as soon as the metadata is written, before the
+    # controller has elected a leader for each new partition. Reading offsets
+    # in that window fails with NOT_LEADER_FOR_PARTITION, so wait it out.
+    await_partition_leaders([t.topic for t in wanted])
+
+
+def await_partition_leaders(topics: list[str], timeout_s: float = 60.0) -> None:
+    """Block until every partition of ``topics`` has an elected leader."""
+    client = admin_client()
+    deadline = time.monotonic() + timeout_s
+
+    while time.monotonic() < deadline:
+        metadata = client.list_topics(timeout=10.0)
+        pending: list[str] = []
+
+        for topic in topics:
+            described = metadata.topics.get(topic)
+            if described is None:
+                pending.append(f"{topic}(absent)")
+                continue
+            for partition_id, partition in described.partitions.items():
+                # librdkafka reports -1 when no leader has been elected yet.
+                if partition.leader < 0:
+                    pending.append(f"{topic}-{partition_id}")
+
+        if not pending:
+            log.info("kafka.partition_leaders_ready", topics=topics)
+            return
+
+        log.info("kafka.awaiting_partition_leaders", pending=pending[:6])
+        time.sleep(1.0)
+
+    raise RuntimeError(
+        f"Partitions still had no leader after {timeout_s:.0f}s: {topics}. "
+        "The broker may be unhealthy — check `docker compose logs kafka`."
+    )
+
 
 def topic_counts() -> dict[str, int]:
     """High-watermark message count per pipeline topic, summed over partitions.
@@ -108,16 +145,36 @@ def topic_counts() -> dict[str, int]:
     try:
         metadata = consumer.list_topics(timeout=10.0)
         counts: dict[str, int] = {}
+
         for topic in (settings.kafka_topic_quotes, settings.kafka_topic_dlq):
             if topic not in metadata.topics:
                 counts[topic] = 0
                 continue
+
             total = 0
             for partition_id in metadata.topics[topic].partitions:
-                low, high = consumer.get_watermark_offsets(
-                    TopicPartition(topic, partition_id), timeout=10.0
-                )
-                total += high - low
+                # A leader election can still be in flight right after topic
+                # creation. These counts are evidence, not control flow, so a
+                # transient error is retried and then reported rather than
+                # being allowed to fail the stage.
+                for attempt in range(5):
+                    try:
+                        low, high = consumer.get_watermark_offsets(
+                            TopicPartition(topic, partition_id), timeout=10.0
+                        )
+                        total += high - low
+                        break
+                    except KafkaException as exc:
+                        if attempt == 4:
+                            log.warning(
+                                "kafka.watermark_unavailable",
+                                topic=topic,
+                                partition=partition_id,
+                                error=str(exc),
+                            )
+                            break
+                        time.sleep(1.0)
+
             counts[topic] = total
         return counts
     finally:
