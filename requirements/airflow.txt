@@ -1,0 +1,9 @@
+# Installed into .venv-airflow *after* apache-airflow itself has been resolved
+# against its official constraints file. Keep this list minimal: anything added
+# here can break the constrained resolution.
+
+# Lets Airflow emit its own OpenLineage events for task instances, in addition
+# to the stage-level events the pipeline code emits directly.
+apache-airflow-providers-openlineage>=1.10
+
+python-dotenv>=1.0

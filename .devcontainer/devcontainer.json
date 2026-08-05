@@ -1,0 +1,56 @@
+{
+  "name": "Financial Market Intelligence System",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bookworm",
+
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "installMaven": "false",
+      "installGradle": "false"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "moby": "true"
+    }
+  },
+
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
+
+  "containerEnv": {
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYSPARK_PYTHON": "/workspaces/Finance/.venv-app/bin/python",
+    "PYSPARK_DRIVER_PYTHON": "/workspaces/Finance/.venv-app/bin/python",
+    "AIRFLOW_HOME": "/workspaces/Finance/airflow",
+    "TOKENIZERS_PARALLELISM": "false"
+  },
+
+  "forwardPorts": [8080, 9092, 5000, 3000],
+  "portsAttributes": {
+    "8080": { "label": "Airflow UI", "onAutoForward": "notify" },
+    "9092": { "label": "Kafka broker", "onAutoForward": "silent" },
+    "5000": { "label": "Marquez API (OpenLineage)", "onAutoForward": "silent" },
+    "3000": { "label": "Marquez UI", "onAutoForward": "silent" }
+  },
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/workspaces/Finance/.venv-app/bin/python"
+      }
+    }
+  },
+
+  "remoteUser": "vscode"
+}
