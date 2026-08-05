@@ -1,0 +1,65 @@
+# ---- Secrets -------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+kaggle.json
+**/secrets/
+
+# ---- Python --------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+.venv-app/
+.venv-airflow/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ---- Data (raw inputs and every generated layer) -------------------------
+data/raw/
+data/landing/
+data/quarantine/
+data/lakehouse/
+data/vectorstore/
+*.csv
+*.zip
+*.parquet
+
+# ---- Spark / Delta runtime junk ------------------------------------------
+spark-warehouse/
+metastore_db/
+derby.log
+*.crc
+_delta_log/**/*.tmp
+
+# ---- Airflow -------------------------------------------------------------
+airflow/logs/
+airflow/airflow.db
+airflow/airflow-webserver.pid
+airflow/standalone_admin_password.txt
+airflow.cfg
+webserver_config.py
+
+# ---- Great Expectations generated output ---------------------------------
+gx/uncommitted/
+
+# ---- Model caches --------------------------------------------------------
+.cache/
+models/
+
+# ---- OS / editor ---------------------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Evidence: keep committed logs, ignore scratch -----------------------
+evidence/**/scratch/
