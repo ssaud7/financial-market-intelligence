@@ -49,6 +49,33 @@ services:
       start_period: 20s
 
   # --------------------------------------------------------------------------
+  # Local LLM serving the RAG stage's answer generation. Running it here rather
+  # than as a host install keeps the stack identical on any machine, and means
+  # the whole pipeline runs with no API key and no outbound calls.
+  #
+  # The model is NOT baked into the image — pull it once after the stack is up:
+  #     make ollama-pull
+  # --------------------------------------------------------------------------
+  ollama:
+    image: ollama/ollama:latest
+    container_name: fmis-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    environment:
+      # One model resident at a time, unloaded after 5 idle minutes: a
+      # 4-core/16 GB Codespace has no room to keep several 5 GB models warm.
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_KEEP_ALIVE: "5m"
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list >/dev/null 2>&1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  # --------------------------------------------------------------------------
   # Optional: browse topics, inspect the dead-letter queue visually.
   # --------------------------------------------------------------------------
   kafka-ui:
@@ -120,3 +147,4 @@ services:
 volumes:
   kafka-data:
   marquez-db-data:
+  ollama-models:

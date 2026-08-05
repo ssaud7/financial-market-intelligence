@@ -46,16 +46,26 @@ class Settings(BaseSettings):
     producer_tickers: str = "AAPL,MSFT,NVDA,AMZN,GOOGL,META,JPM,XOM,UNH,PG"
 
     # ---- RAG -------------------------------------------------------------
-    anthropic_api_key: str = ""
-    rag_generation_model: str = "claude-sonnet-5"
+    # Generation runs against a local Ollama server — no API key, no egress.
+    ollama_host: str = "http://localhost:11434"
+    ollama_model: str = "qwen2.5:7b-instruct-q4_K_M"
+    ollama_timeout_s: float = 600.0
+    # Deterministic decoding: a grounded, cited answer should not vary run to
+    # run, and a fixed seed makes the captured evidence reproducible.
+    ollama_temperature: float = 0.0
+    ollama_seed: int = 7
     rag_embedding_model: str = "BAAI/bge-small-en-v1.5"
     rag_rerank_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-    rag_chunk_tokens: int = 900
-    rag_chunk_overlap: int = 150
+    # Chunk size is expressed in characters, not tokens: the embedding model
+    # caps at 512 tokens, and ~1600 characters of financial prose lands
+    # comfortably under that without needing a tokenizer at split time.
+    rag_chunk_chars: int = 1600
+    rag_chunk_overlap_chars: int = 250
     rag_dense_top_k: int = 30
     rag_sparse_top_k: int = 30
     rag_rrf_k: int = 60
     rag_rerank_top_n: int = 6
+    rag_max_answer_tokens: int = 4000
 
     # ---- OpenLineage -----------------------------------------------------
     openlineage_transport: str = "file"
