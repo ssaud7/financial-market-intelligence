@@ -1,0 +1,21 @@
+# The repo is authored on Windows but executes in a Linux Codespace. Without
+# this, CRLF line endings reach the container and bash rejects every script with
+# "bad interpreter: /usr/bin/env bash^M".
+* text=auto eol=lf
+
+*.sh  text eol=lf
+*.py  text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.cfg text eol=lf
+*.md  text eol=lf
+Makefile text eol=lf
+
+# Binary / generated
+*.png binary
+*.jpg binary
+*.zip binary
+*.parquet binary
+*.ipynb text eol=lf
