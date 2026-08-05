@@ -60,6 +60,7 @@ models/
 Thumbs.db
 .vscode/
 .idea/
+.claude/
 
 # ---- Evidence: keep committed logs, ignore scratch -----------------------
 evidence/**/scratch/
