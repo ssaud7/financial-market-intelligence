@@ -156,8 +156,8 @@ make ollama-pull
 ### Local Linux / WSL2
 
 ```bash
-git clone https://github.com/ssaud7/financial-market-intelligence-system.git
-cd financial-market-intelligence-system
+git clone https://github.com/ssaud7/financial-market-intelligence.git
+cd financial-market-intelligence
 make setup
 cp .env.example .env
 make infra-up

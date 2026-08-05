@@ -59,7 +59,7 @@ except ImportError:  # pragma: no cover - older releases
 
     error_message_run = nominal_time_run = parent_run = schema_dataset = None  # type: ignore
 
-PRODUCER = "https://github.com/ssaud7/financial-market-intelligence-system"
+PRODUCER = "https://github.com/ssaud7/financial-market-intelligence"
 _PARENT_JOB_NAME = "financial_market_intelligence_pipeline"
 
 
