@@ -18,7 +18,11 @@
 
 FROM mcr.microsoft.com/devcontainers/python:1-3.11-bookworm
 
-USER root
+# Deliberately no trailing `USER vscode`. The image must stay root-owned at
+# runtime so the Codespaces agent can install and start its SSH server; pinning
+# the container user to vscode makes `gh codespace ssh` fail with
+# "failed to start SSH server". devcontainer.json's "remoteUser": "vscode"
+# is what drops privileges for the interactive session.
 
 RUN set -eux; \
     # Drop any apt source pointing at yarnpkg, whatever it is named.
@@ -29,5 +33,3 @@ RUN set -eux; \
     # here with a clear message instead of inside an opaque Feature install.
     apt-get update; \
     rm -rf /var/lib/apt/lists/*
-
-USER vscode
