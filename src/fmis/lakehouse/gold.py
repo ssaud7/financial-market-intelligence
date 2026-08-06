@@ -19,6 +19,7 @@ data cannot roll a ticker's metrics backwards.
 
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from typing import Any
 
 from pyspark.sql import DataFrame, SparkSession
@@ -210,6 +211,10 @@ def merge_gold() -> dict[str, Any]:
         # the business key rather than an overwrite, so it is persisted rather
         # than left only in the logs.
         write_run_evidence("gold_merge", result)
+        # ...and the table itself, because "Gold is an aggregate, not a copy of
+        # Silver" is far more convincing when the rows are visible next to
+        # Silver's row count than when it is merely asserted.
+        _write_gold_snapshot(spark, silver_rows=silver_rows)
 
     log.info(
         "gold.merged",
@@ -219,6 +224,63 @@ def merge_gold() -> dict[str, Any]:
         rows_after=rows_after,
     )
     return result
+
+
+SNAPSHOT_COLUMNS: tuple[tuple[str, str], ...] = (
+    ("ticker", "Ticker"),
+    ("as_of_date", "As of"),
+    ("latest_close", "Close"),
+    ("ma_30", "30d MA"),
+    ("ma_30_trend", "Trend"),
+    ("pct_vs_ma_30", "% vs MA"),
+    ("volatility_30d_annualised", "Vol % (ann.)"),
+    ("high_52w", "52w high"),
+    ("pct_from_52w_high", "% off high"),
+    ("sessions_observed", "Sessions"),
+)
+
+
+def _write_gold_snapshot(spark: SparkSession, *, silver_rows: int) -> None:
+    """Render the Gold table to markdown alongside Silver's row count."""
+    rows = (
+        spark.read.format("delta")
+        .load(str(settings.gold_path))
+        .orderBy("ticker")
+        .collect()
+    )
+
+    lines = [
+        "# Gold table — one row per ticker",
+        "",
+        f"Generated: {datetime.now(timezone.utc).isoformat()}",
+        "",
+        f"**Silver holds {silver_rows:,} rows** (one per ticker per session). "
+        f"**Gold holds {len(rows)}** — one per ticker. Every column below is derived "
+        "from a window over the full history, which is what makes this an aggregate "
+        "rather than a filtered copy.",
+        "",
+        "| " + " | ".join(label for _, label in SNAPSHOT_COLUMNS) + " |",
+        "| " + " | ".join("---" for _ in SNAPSHOT_COLUMNS) + " |",
+    ]
+
+    for row in rows:
+        cells = []
+        for column, _ in SNAPSHOT_COLUMNS:
+            value = row[column]
+            if value is None:
+                cells.append("—")
+            elif isinstance(value, float):
+                cells.append(f"{value:,.2f}")
+            elif isinstance(value, int):
+                cells.append(f"{value:,}")
+            else:
+                cells.append(str(value))
+        lines.append("| " + " | ".join(cells) + " |")
+
+    target = settings.evidence_root / "runs" / "gold_table.md"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    log.info("gold.snapshot_written", path=str(target), rows=len(rows))
 
 
 def read_gold(limit: int = 20) -> list[dict[str, Any]]:
