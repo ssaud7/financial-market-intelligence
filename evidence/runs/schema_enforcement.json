@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-08-05T23:53:28.906401+00:00",
+  "sandbox_path": "/workspaces/financial-market-intelligence/data/lakehouse/_enforcement_sandbox/quotes",
+  "schema_source": "/workspaces/financial-market-intelligence/data/lakehouse/silver/quotes",
+  "auto_merge_enabled": "false",
+  "rows_before": 50,
+  "rows_after": 51,
+  "attempts": [
+    {
+      "attempt": "control_valid_row",
+      "mechanism": "none (control)",
+      "description": "append a well-formed row",
+      "expected": "accepted",
+      "refused": false,
+      "passed": true,
+      "exception_type": null,
+      "message": null
+    },
+    {
+      "attempt": "extra_column",
+      "mechanism": "schema enforcement",
+      "description": "append a frame carrying a column the table does not declare",
+      "expected": "refused",
+      "refused": true,
+      "passed": true,
+      "exception_type": "AnalysisException",
+      "message": "[_LEGACY_ERROR_TEMP_DELTA_0007] A schema mismatch detected when writing to the Delta table (Table ID: ccc14af2-47b1-434b-ad8c-c78e668a940b)."
+    },
+    {
+      "attempt": "missing_column",
+      "mechanism": "schema enforcement",
+      "description": "append a frame with the close column removed",
+      "expected": "refused",
+      "refused": true,
+      "passed": true,
+      "exception_type": "Py4JJavaError",
+      "message": "An error occurred while calling o118.save."
+    },
+    {
+      "attempt": "wrong_type",
+      "mechanism": "schema enforcement",
+      "description": "append a frame whose volume is a string rather than BIGINT",
+      "expected": "refused",
+      "refused": true,
+      "passed": true,
+      "exception_type": "AnalysisException",
+      "message": "[DELTA_CONSTRAINT_DATA_TYPE_MISMATCH] Column volume has data type BIGINT and cannot be altered to data type STRING because this column is referenced by the following check constraint(s):"
+    },
+    {
+      "attempt": "null_in_not_null_column",
+      "mechanism": "NOT NULL invariant",
+      "description": "append a row whose close price is null",
+      "expected": "refused",
+      "refused": true,
+      "passed": true,
+      "exception_type": "Py4JJavaError",
+      "message": "An error occurred while calling o142.save."
+    },
+    {
+      "attempt": "high_below_low",
+      "mechanism": "CHECK constraint",
+      "description": "append a session whose high is below its low",
+      "expected": "refused",
+      "refused": true,
+      "passed": true,
+      "exception_type": "Py4JJavaError",
+      "message": "An error occurred while calling o159.save."
+    },
+    {
+      "attempt": "negative_price",
+      "mechanism": "CHECK constraint",
+      "description": "append a session with a negative close price",
+      "expected": "refused",
+      "refused": true,
+      "passed": true,
+      "exception_type": "Py4JJavaError",
+      "message": "An error occurred while calling o172.save."
+    }
+  ],
+  "attempts_total": 7,
+  "attempts_passed": 7,
+  "enforcement_holds": true
+}

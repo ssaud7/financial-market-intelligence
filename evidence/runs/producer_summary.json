@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-08-05T23:49:22.166075+00:00",
+  "topic": "market.quotes.raw",
+  "corruption_rate": 0.08,
+  "produced": 25000,
+  "clean": 22996,
+  "corrupted": 2004,
+  "delivery_failures": 0,
+  "faults_injected": {
+    "blank_ticker": 170,
+    "corrupt_timestamp": 168,
+    "future_date": 167,
+    "high_below_low": 184,
+    "missing_close": 166,
+    "missing_ticker": 141,
+    "negative_price": 164,
+    "negative_volume": 184,
+    "non_numeric_price": 169,
+    "truncated_json": 168,
+    "unexpected_field": 166,
+    "zero_price": 157
+  }
+}

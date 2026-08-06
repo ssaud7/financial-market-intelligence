@@ -1,0 +1,253 @@
+{
+  "success": true,
+  "evaluated": 20,
+  "successful": 20,
+  "failed_expectations": [],
+  "results": [
+    {
+      "expectation": "expect_column_pair_values_a_to_be_greater_than_b",
+      "kwargs": {
+        "column_A": "high",
+        "column_B": "low",
+        "or_equal": true
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_pair_values_a_to_be_greater_than_b",
+      "kwargs": {
+        "column_A": "high",
+        "column_B": "close",
+        "or_equal": true
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_pair_values_a_to_be_greater_than_b",
+      "kwargs": {
+        "column_A": "close",
+        "column_B": "low",
+        "or_equal": true
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_pair_values_a_to_be_greater_than_b",
+      "kwargs": {
+        "column_A": "high",
+        "column_B": "open",
+        "or_equal": true
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_pair_values_a_to_be_greater_than_b",
+      "kwargs": {
+        "column_A": "open",
+        "column_B": "low",
+        "or_equal": true
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_compound_columns_to_be_unique",
+      "kwargs": {
+        "column_list": [
+          "ticker",
+          "trade_date"
+        ]
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "min_value": 1
+      },
+      "success": true,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "partial_unexpected_list": null
+    },
+    {
+      "expectation": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "ticker"
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "ticker",
+        "value_set": [
+          "ADBE",
+          "ADSK",
+          "CDNS",
+          "CRM",
+          "CRWD",
+          "DDOG",
+          "FTNT",
+          "INTU",
+          "MSFT",
+          "NOW",
+          "ORCL",
+          "PAYC",
+          "PLTR",
+          "SNPS",
+          "TYL",
+          "WDAY"
+        ]
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "trade_date"
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "open"
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "open",
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "high"
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "high",
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "low"
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "low",
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "close"
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "close",
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "volume"
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    },
+    {
+      "expectation": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "volume",
+        "min_value": 0.0
+      },
+      "success": true,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "partial_unexpected_list": []
+    }
+  ],
+  "generated_at": "2026-08-05T23:56:22.424142+00:00",
+  "validated_table": "/workspaces/financial-market-intelligence/data/lakehouse/silver/quotes",
+  "rows_validated": 22996,
+  "tainted": false,
+  "suite": "silver_quotes_suite"
+}

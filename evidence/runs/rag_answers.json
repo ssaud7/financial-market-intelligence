@@ -1,0 +1,2602 @@
+{
+  "generated_at": "2026-08-06T00:44:36.603570+00:00",
+  "generation_model": "qwen2.5:7b-instruct-q4_K_M",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "rerank_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "config": {
+    "dense_top_k": 30,
+    "sparse_top_k": 30,
+    "rrf_k": 60,
+    "rerank_top_n": 6
+  },
+  "summary": {
+    "questions": 6,
+    "answered": 5,
+    "refused": 1,
+    "answers_with_citations": 5,
+    "answers_with_warnings": 0,
+    "reranker_changed_selection": 6
+  },
+  "results": [
+    {
+      "question": "What supply chain risks and component shortages do these companies cite as threats to their operations?",
+      "answer": "These companies cite several supply chain risks and component shortages that threaten their operations, including:\n\n[S1][S2][S4][S5][S6] The risk of relying on third-party suppliers for critical components, which can lead to potential shortages or delays in production due to various factors such as natural disasters, political instability, health risks, and industry-wide shortages. Additionally, the lack of long-term contracts with suppliers increases vulnerability to sudden supply disruptions.\n\n[S1][S2][S4][S5][S6] The impact of global events like pandemics (e.g., COVID-19) on production schedules and delivery times, which can result in delays or loss of sales. These risks are heightened by the geographical concentration of manufacturing operations in certain regions.\n\n[S1][S2][S4][S5][S6] The potential for increased component costs, which can negatively affect profitability if alternative sources cannot be found at acceptable prices.\n\n[S1][S2][S4][S5][S6] The risk of supply chain disruptions due to industry consolidation and component constraints or shortages, as well as the possibility that some components are sourced from single vendors, making them more susceptible to supply issues.",
+      "refused": false,
+      "citations": [
+        {
+          "marker": "[S1]",
+          "source_index": 1,
+          "chunk_id": "2aa7587d3678e297",
+          "citation_label": "Alarm.com Holdings, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "Alarm.com Holdings, Inc.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1459200_10K_2020_0001459200-21-000012.htm",
+          "excerpt": "of any key supplier could materially and adversely affect our business, financial condition, cash flows and results of operations.\nOur hardware products depend on the availability and quality of components that we procure from third-party suppliers. Reliance on suppliers, as well as industry supply conditions, generally involves several risks, including the possibility of defective parts, which ca"
+        },
+        {
+          "marker": "[S2]",
+          "source_index": 2,
+          "chunk_id": "2146b72e395ae2e3",
+          "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "DATTO HOLDING CORP.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1724570_10K_2020_0001724570-21-000015.htm",
+          "excerpt": "revenue or loss of sales opportunities altogether as potential MSP partners turn to competitors\u2019 products that are readily available. If we are unable to effectively manage our supply and inventory, our operating results could be adversely affected.\nBecause some of the key components in our products come from limited sources of supply, we are susceptible to supply shortages or supply changes, whic"
+        },
+        {
+          "marker": "[S4]",
+          "source_index": 4,
+          "chunk_id": "eea6e30d9ecd89f1",
+          "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "Fortinet, Inc.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1262039_10K_2020_0001262039-21-000008.htm",
+          "excerpt": "oods, health pandemics and epidemics such as the COVID-19 pandemic, and manmade events such as civil unrest, labor disruption, international trade disputes, international conflicts, terrorism, wars, critical infrastructure attacks and other factors. Our reliance on a limited number of suppliers involves several additional risks, including:\n\u2022a potential inability to obtain an adequate supply of req"
+        },
+        {
+          "marker": "[S5]",
+          "source_index": 5,
+          "chunk_id": "5ee31c81dd946178",
+          "citation_label": "ORACLE CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "ORACLE CORP",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "1341439_10K_2021_0001564590-21-033616.htm",
+          "excerpt": "isting and prospective customers, and our business, operating results, and financial position.\nOur cloud offerings and hardware offerings are complex, and if we cannot successfully manage this complexity, the results of these businesses will suffer. We depend on suppliers to develop, manufacture and deliver on a timely basis the necessary technologies and components for our hardware products that "
+        },
+        {
+          "marker": "[S6]",
+          "source_index": 6,
+          "chunk_id": "ea87fbd67bf3d9ed",
+          "citation_label": "ORACLE CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "ORACLE CORP",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "1341439_10K_2021_0001564590-21-033616.htm",
+          "excerpt": "e may be unable to purchase these items from the respective single vendors on acceptable terms or may experience significant shortages, delays or quality issues in the delivery of necessary technologies, parts or components from a particular vendor. If one or more of the risks described above occurs, our cloud and license business and hardware business and related operating results could be materi"
+        }
+      ],
+      "warnings": [],
+      "model": "qwen2.5:7b-instruct-q4_K_M",
+      "usage": {
+        "prompt_eval_count": 2266,
+        "eval_count": 246,
+        "total_duration_ms": 223308,
+        "tokens_per_second": 3.77
+      },
+      "retrieval": {
+        "dense_hits": 30,
+        "sparse_hits": 30,
+        "fused_candidates": 46,
+        "found_by_both_retrievers": 14,
+        "rrf_k": 60,
+        "reranked_to": 6,
+        "rerank_changed_selection": true,
+        "promoted_by_reranker": [
+          "eea6e30d9ecd89f1",
+          "ea87fbd67bf3d9ed"
+        ],
+        "demoted_by_reranker": [
+          "321280aee815b043",
+          "18a444331cd9dcd0"
+        ],
+        "dense_top5": [
+          {
+            "chunk_id": "2aa7587d3678e297",
+            "citation_label": "Alarm.com Holdings, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "eea6e30d9ecd89f1",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "2146b72e395ae2e3",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "321280aee815b043",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "0f570ed630e78beb",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 5,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "sparse_top5": [
+          {
+            "chunk_id": "2146b72e395ae2e3",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 1,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "69a3ecc890229664",
+            "citation_label": "MICROSOFT CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "2aa7587d3678e297",
+            "citation_label": "Alarm.com Holdings, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 3,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "e3ac68db0647215d",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 4,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "5ee31c81dd946178",
+            "citation_label": "ORACLE CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 5,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "fused_top10": [
+          {
+            "chunk_id": "2aa7587d3678e297",
+            "citation_label": "Alarm.com Holdings, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": 3,
+            "rrf_score": 0.032266,
+            "rerank_score": 4.2736,
+            "final_rank": 1
+          },
+          {
+            "chunk_id": "2146b72e395ae2e3",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": 1,
+            "rrf_score": 0.032266,
+            "rerank_score": 3.1714,
+            "final_rank": 2
+          },
+          {
+            "chunk_id": "321280aee815b043",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": 6,
+            "rrf_score": 0.030777,
+            "rerank_score": 0.5098,
+            "final_rank": 3
+          },
+          {
+            "chunk_id": "69a3ecc890229664",
+            "citation_label": "MICROSOFT CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 11,
+            "sparse_rank": 2,
+            "rrf_score": 0.030214,
+            "rerank_score": 2.1316,
+            "final_rank": 3
+          },
+          {
+            "chunk_id": "5ee31c81dd946178",
+            "citation_label": "ORACLE CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 9,
+            "sparse_rank": 5,
+            "rrf_score": 0.029877,
+            "rerank_score": 1.6245,
+            "final_rank": 5
+          },
+          {
+            "chunk_id": "18a444331cd9dcd0",
+            "citation_label": "Cloudflare, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 6,
+            "sparse_rank": 8,
+            "rrf_score": 0.029857,
+            "rerank_score": 0.9638,
+            "final_rank": 6
+          },
+          {
+            "chunk_id": "0f570ed630e78beb",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 5,
+            "sparse_rank": 11,
+            "rrf_score": 0.029469,
+            "rerank_score": 0.6786,
+            "final_rank": 7
+          },
+          {
+            "chunk_id": "e3ac68db0647215d",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 14,
+            "sparse_rank": 4,
+            "rrf_score": 0.029139,
+            "rerank_score": -3.8148,
+            "final_rank": 8
+          },
+          {
+            "chunk_id": "eea6e30d9ecd89f1",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": 17,
+            "rrf_score": 0.029116,
+            "rerank_score": 1.6987,
+            "final_rank": 4
+          },
+          {
+            "chunk_id": "c8d562400c4de45b",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 7,
+            "sparse_rank": 13,
+            "rrf_score": 0.028624,
+            "rerank_score": -0.3275,
+            "final_rank": 10
+          }
+        ],
+        "final_passages": [
+          {
+            "chunk_id": "2aa7587d3678e297",
+            "citation_label": "Alarm.com Holdings, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": 3,
+            "rrf_score": 0.032266,
+            "rerank_score": 4.2736,
+            "final_rank": 1,
+            "text": "of any key supplier could materially and adversely affect our business, financial condition, cash flows and results of operations.\nOur hardware products depend on the availability and quality of components that we procure from third-party suppliers. Reliance on suppliers, as well as industry supply conditions, generally involves several risks, including the possibility of defective parts, which can adversely affect the reliability and reputation of our platforms and solutions, and a shortage of components and reduced control over delivery schedules and increases in component costs, which can adversely affect our profitability. These supply chain risks are heightened in the current environment where continuing travel restrictions and shelter-in-place orders as well as limitations on factory capacity and delays in shipping times due to the COVID-19 pandemic have and may continue to adversely affect production of and the timing of delivery of components. Shortages of essential components of our products or significantly increased lead times for obtaining such components may lead to delays in our production, and we may be unable to fulfill orders for our hardware products on a timely basis or at all. Even if we are able to procure components from alternative sources, we may be required to pay more for them, which could adversely affect our profitability."
+          },
+          {
+            "chunk_id": "2146b72e395ae2e3",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": 1,
+            "rrf_score": 0.032266,
+            "rerank_score": 3.1714,
+            "final_rank": 2,
+            "text": "revenue or loss of sales opportunities altogether as potential MSP partners turn to competitors\u2019 products that are readily available. If we are unable to effectively manage our supply and inventory, our operating results could be adversely affected.\nBecause some of the key components in our products come from limited sources of supply, we are susceptible to supply shortages or supply changes, which could disrupt or delay our scheduled product deliveries to our end-users and may result of in the loss of sales or a loss of MSP partner relationships.\nOur products rely on key components, including our networking hardware such as access points, switches and routers, which our manufacturing partners purchase on our behalf from a limited number of component suppliers. The manufacturing operations of some of our component suppliers are geographically concentrated in Asia and elsewhere, which makes our supply chain vulnerable to regional disruptions, such as natural disasters, fire, political instability, civil unrest, a power outage or a localized health risk, and as a result could impair the volume of components that we are able to obtain.\nFurther, we do not have volume purchase contracts with any of our component suppliers, and they could cease selling to us at any time following the completion of an accepted purchase order."
+          },
+          {
+            "chunk_id": "69a3ecc890229664",
+            "citation_label": "MICROSOFT CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 11,
+            "sparse_rank": 2,
+            "rrf_score": 0.030214,
+            "rerank_score": 2.1316,
+            "final_rank": 3,
+            "text": "her because of supplier capacity constraint, industry shortages, legal or regulatory changes that restrict supply sources, or other reasons, we may not obtain timely replacement supplies, resulting in reduced sales or inadequate datacenter capacity. Component shortages, excess or obsolete inventory, or price reductions resulting in inventory adjustments may increase our cost of revenue. Xbox consoles, Surface devices, datacenter servers, and other hardware are assembled in Asia and other geographies that may be subject to disruptions in the supply chain, resulting in shortages that would affect our revenue and operating margins. These same risks would apply to any other hardware and software products we may offer.\nLEGAL, REGULATORY, AND LITIGATION RISKS\nGovernment litigation and regulatory activity relating to competition rules may limit how we design and market our products. As a leading global software and device maker, government agencies closely scrutinize us under U.S. and foreign competition laws. Governments are actively enforcing competition laws and regulations, and this includes scrutiny in potentially large markets such as the European Union (\u201cEU\u201d), the U.S., and China. Some jurisdictions also allow competitors or consumers to assert claims of anti-competitive conduct. U.S. federal and state antitrust authorities have previously brought enforcement actions and continue to scrutinize our business."
+          },
+          {
+            "chunk_id": "eea6e30d9ecd89f1",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": 17,
+            "rrf_score": 0.029116,
+            "rerank_score": 1.6987,
+            "final_rank": 4,
+            "text": "oods, health pandemics and epidemics such as the COVID-19 pandemic, and manmade events such as civil unrest, labor disruption, international trade disputes, international conflicts, terrorism, wars, critical infrastructure attacks and other factors. Our reliance on a limited number of suppliers involves several additional risks, including:\n\u2022a potential inability to obtain an adequate supply of required parts or components when required;\n\u2022financial or other difficulties faced by our suppliers;\n\u2022infringement or misappropriation of our IP;\n\u2022price increases;\n\u2022failure of a component to meet environmental or other regulatory requirements;\n\u2022failure to meet delivery obligations in a timely fashion;\n\u2022failure in component quality; and\n\u2022inability to ship products on a timely basis.\nThe occurrence of any of these events would be disruptive to us and could seriously harm our business. Any interruption or delay in the supply of any of these parts or components, or the inability to obtain these parts or components from alternate sources at acceptable prices and within a reasonable amount of time, would harm our ability to meet our scheduled product deliveries to our distributors, resellers and end-customers. This could harm our relationships with our channel partners and end-customers and could cause delays in shipment of our products and adversely affect our results of operations. In addition, increased component costs could result in lower gross margins."
+          },
+          {
+            "chunk_id": "5ee31c81dd946178",
+            "citation_label": "ORACLE CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 9,
+            "sparse_rank": 5,
+            "rrf_score": 0.029877,
+            "rerank_score": 1.6245,
+            "final_rank": 5,
+            "text": "isting and prospective customers, and our business, operating results, and financial position.\nOur cloud offerings and hardware offerings are complex, and if we cannot successfully manage this complexity, the results of these businesses will suffer. We depend on suppliers to develop, manufacture and deliver on a timely basis the necessary technologies and components for our hardware products that we market and sell to our customers and that we use as a part of our cloud infrastructure to deliver our cloud offerings, and there are some technologies and components that can only be purchased from a single vendor due to price, quality, technology,\navailability or other business constraints. As a result, our supply chain operations could be disrupted or negatively impacted by industry consolidation and component constraints or shortages, natural disasters, political unrest, public health crises such as the COVID-19 pandemic, changes to trade policies, port stoppages or other transportation disruptions or slowdowns, or other factors affecting the countries or regions where these single source component vendors are located or where the products are being shipped. We may be unable to purchase these items from the respective single vendors on acceptable terms or may experience significant shortages, delays or quality issues in the delivery of necessary technologies, parts or components from a particular vendor."
+          },
+          {
+            "chunk_id": "ea87fbd67bf3d9ed",
+            "citation_label": "ORACLE CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 13,
+            "sparse_rank": 9,
+            "rrf_score": 0.028191,
+            "rerank_score": 1.501,
+            "final_rank": 6,
+            "text": "e may be unable to purchase these items from the respective single vendors on acceptable terms or may experience significant shortages, delays or quality issues in the delivery of necessary technologies, parts or components from a particular vendor. If one or more of the risks described above occurs, our cloud and license business and hardware business and related operating results could be materially and adversely affected.\nWe are susceptible to third-party manufacturing and logistics delays, which could result in the loss of sales and customers. We outsource a significant majority of our manufacturing, assembly, delivery and technology of, and certain component designs for, our hardware products to a variety of companies, many of which are located outside the U.S. From time to time, these partners experience production problems or delays or cannot meet our demand for products. To reduce this risk, we continue to explore additional third-party manufacturing partners to drive supply chain continuity, but finding additional manufacturing sources in a timely and cost-effective manner is difficult. Third-party manufacturing and logistics delays attributable to the effects of COVID-19 caused a loss of sales during our fiscal 2021. Ongoing or future delays in manufacturing could cause the loss of additional sales, delayed revenue recognition or an increase in our hardware products expenses, all of which could adversely affect the margins of our cloud and license business and hardware business."
+          }
+        ]
+      },
+      "elapsed_seconds": 234.47
+    },
+    {
+      "question": "What regulatory and antitrust risks are disclosed, and in which jurisdictions?",
+      "answer": "Regulatory and antitrust risks are disclosed for several companies operating internationally:\n\n- **Microsoft Corp** faces scrutiny from U.S. federal and state antitrust authorities as well as the European Commission regarding product design and terms of technology availability to competitors. For instance, the European Commission ordered Microsoft to create new versions of its Windows OS that exclude certain multimedia technologies and provided specifications for implementing proprietary protocols in other companies' products [S3].\n\n- **Salesforce.com Inc** operates internationally and faces risks related to regulatory frameworks or business practices favoring local competitors, as well as compliance with multiple governmental laws and regulations including employment, tax, privacy, anti-corruption, import/export, customs, sanctions, antitrust, data transfer, storage, and protection [S2][S6].\n\n- **Medallia Inc** is subject to a variety of U.S. and foreign laws related to privacy, data protection, consumer protection, intellectual property, employment, labor, immigration, securities, and tax regulations, which are continuously evolving [S5].",
+      "refused": false,
+      "citations": [
+        {
+          "marker": "[S3]",
+          "source_index": 3,
+          "chunk_id": "c94d6090a52fc858",
+          "citation_label": "MICROSOFT CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "MICROSOFT CORP",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "789019_10K_2021_0001564590-21-039151.htm",
+          "excerpt": "e U.S., and China. Some jurisdictions also allow competitors or consumers to assert claims of anti-competitive conduct. U.S. federal and state antitrust authorities have previously brought enforcement actions and continue to scrutinize our business.\nThe European Commission (\u201cthe Commission\u201d) closely scrutinizes the design of high-volume Microsoft products and the terms on which we make certain tec"
+        },
+        {
+          "marker": "[S2]",
+          "source_index": 2,
+          "chunk_id": "b0f7321db4fa1382",
+          "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "SALESFORCE.COM, INC.",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "1108524_10K_2021_0001108524-22-000008.htm",
+          "excerpt": "d forecasting the related revenues, including subscription-based revenues and software license revenue, as well as appropriate allocation of the customer consideration to the individual deliverables;\n\u2022diversion of financial and managerial resources from existing operations;\n\u2022the potential entry into new markets in which we have little or no experience or where competitors may have stronger market "
+        },
+        {
+          "marker": "[S6]",
+          "source_index": 6,
+          "chunk_id": "552e8e59af38b0c6",
+          "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "SALESFORCE.COM, INC.",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "1108524_10K_2021_0001108524-22-000008.htm",
+          "excerpt": "tates expose us to risks inherent in international operations.\nWe sell our services throughout the world and are subject to risks and challenges associated with international business. We intend to continue to expand our international sales efforts. The risks and challenges associated with sales to customers outside the United States or those that can affect international operations generally, inc"
+        },
+        {
+          "marker": "[S5]",
+          "source_index": 5,
+          "chunk_id": "4597a96b7dc257e9",
+          "citation_label": "Medallia, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "Medallia, Inc.",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "1540184_10K_2021_0001540184-21-000004.htm",
+          "excerpt": "tions and financial condition.\nRisks Related to Laws and Regulations\nOur business is subject to a variety of U.S. and foreign laws, many of which are unsettled and still developing and which could subject us to claims or otherwise harm our business.\nWe are subject to a variety of laws in the United States and internationally, including laws regarding privacy, data protection, data security, data r"
+        }
+      ],
+      "warnings": [],
+      "model": "qwen2.5:7b-instruct-q4_K_M",
+      "usage": {
+        "prompt_eval_count": 2321,
+        "eval_count": 207,
+        "total_duration_ms": 263800,
+        "tokens_per_second": 3.56
+      },
+      "retrieval": {
+        "dense_hits": 30,
+        "sparse_hits": 30,
+        "fused_candidates": 56,
+        "found_by_both_retrievers": 4,
+        "rrf_k": 60,
+        "reranked_to": 6,
+        "rerank_changed_selection": true,
+        "promoted_by_reranker": [
+          "8351e8c3e4bd5640",
+          "b0f7321db4fa1382",
+          "c94d6090a52fc858",
+          "552e8e59af38b0c6"
+        ],
+        "demoted_by_reranker": [
+          "b5ae1f870e30c7cb",
+          "c9ea97dfad0966df",
+          "107ec60edf49308e",
+          "69a3ecc890229664"
+        ],
+        "dense_top5": [
+          {
+            "chunk_id": "4597a96b7dc257e9",
+            "citation_label": "Medallia, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "f22cf13fde4cd42c",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "0f5ab1edf5a53fd2",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "09f89b7d2aff7ccb",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "a7843d43b4dd07a5",
+            "citation_label": "Datadog, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 5,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "sparse_top5": [
+          {
+            "chunk_id": "69a3ecc890229664",
+            "citation_label": "MICROSOFT CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 1,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "b0f7321db4fa1382",
+            "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "4e32301863403353",
+            "citation_label": "CrowdStrike Holdings, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 3,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "d3ebda15b17a7299",
+            "citation_label": "Slack Technologies, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 4,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "c9ea97dfad0966df",
+            "citation_label": "Palantir Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 5,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "fused_top10": [
+          {
+            "chunk_id": "b5ae1f870e30c7cb",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 6,
+            "sparse_rank": 10,
+            "rrf_score": 0.029437,
+            "rerank_score": -3.8254,
+            "final_rank": 1
+          },
+          {
+            "chunk_id": "c9ea97dfad0966df",
+            "citation_label": "Palantir Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 12,
+            "sparse_rank": 5,
+            "rrf_score": 0.029274,
+            "rerank_score": -2.4184,
+            "final_rank": 2
+          },
+          {
+            "chunk_id": "77d8391487c79159",
+            "citation_label": "Alarm.com Holdings, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 11,
+            "sparse_rank": 19,
+            "rrf_score": 0.026743,
+            "rerank_score": -1.5471,
+            "final_rank": 4
+          },
+          {
+            "chunk_id": "107ec60edf49308e",
+            "citation_label": "Cloudflare, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 19,
+            "sparse_rank": 27,
+            "rrf_score": 0.024152,
+            "rerank_score": -3.9925,
+            "final_rank": 4
+          },
+          {
+            "chunk_id": "4597a96b7dc257e9",
+            "citation_label": "Medallia, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.016393,
+            "rerank_score": -1.6383,
+            "final_rank": 5
+          },
+          {
+            "chunk_id": "69a3ecc890229664",
+            "citation_label": "MICROSOFT CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 1,
+            "rrf_score": 0.016393,
+            "rerank_score": -2.1895,
+            "final_rank": 6
+          },
+          {
+            "chunk_id": "f22cf13fde4cd42c",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.016129,
+            "rerank_score": -8.1575,
+            "final_rank": 7
+          },
+          {
+            "chunk_id": "b0f7321db4fa1382",
+            "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.016129,
+            "rerank_score": -0.4462,
+            "final_rank": 2
+          },
+          {
+            "chunk_id": "0f5ab1edf5a53fd2",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "rrf_score": 0.015873,
+            "rerank_score": -4.4139,
+            "final_rank": 9
+          },
+          {
+            "chunk_id": "4e32301863403353",
+            "citation_label": "CrowdStrike Holdings, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 3,
+            "rrf_score": 0.015873,
+            "rerank_score": -7.4571,
+            "final_rank": 10
+          }
+        ],
+        "final_passages": [
+          {
+            "chunk_id": "8351e8c3e4bd5640",
+            "citation_label": "Jamf Holding Corp. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 9,
+            "sparse_rank": null,
+            "rrf_score": 0.014493,
+            "rerank_score": -0.0712,
+            "final_rank": 1,
+            "text": "and adversely affect our business and operating results.\nRisks Related to Laws and Regulations\nWe provide our products to state and local governments and to a lesser extent federal government agencies, and heavily regulated organizations in the U.S. and in foreign jurisdictions; as a result, we face risks related to the procurement process budget decisions driven by statutory and regulatory determinations, termination of contracts and compliance with government contracting requirements.\nWe sell our products and provide limited services to a number of state and local government entities (including, primarily, educational institutions) and, in limited instances, the U.S. government. We additionally have customers who operate in heavily-regulated organizations who procure our software products both through our partners and directly, and we have made, and may continue to make, significant investments to support future sales opportunities in these sectors. Doing business with government entities presents a variety of risks. Among other risks, the procurement process for governments and their agencies is highly competitive, can be time-consuming, requires us to incur significant up-front time and expense and subjects us to additional compliance risks and costs, without any assurance that we (or a third-party reseller) will win a contract."
+          },
+          {
+            "chunk_id": "b0f7321db4fa1382",
+            "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.016129,
+            "rerank_score": -0.4462,
+            "final_rank": 2,
+            "text": "d forecasting the related revenues, including subscription-based revenues and software license revenue, as well as appropriate allocation of the customer consideration to the individual deliverables;\n\u2022diversion of financial and managerial resources from existing operations;\n\u2022the potential entry into new markets in which we have little or no experience or where competitors may have stronger market positions;\n\u2022currency and regulatory risks associated with foreign countries and potential additional cybersecurity and compliance risks resulting from entry into new markets;\n\u2022difficulties in integrating acquired operations, technologies, services, platforms and personnel;\n\u2022the inability to obtain (or a material delay in obtaining) the regulatory approvals, including from antitrust or other similar regulatory authorities, necessary to complete transactions or to integrate operations, or potential remedies imposed by regulatory authorities either as a condition to or following the completion of a transaction (such as the global hold separate order, issued in connection with our acquisition of Tableau by the United Kingdom Competition & Markets Authority in fiscal 2020, which order was lifted in fiscal 2020), which may include divestitures, ownership or operational restrictions or other structural or behavioral remedies;\n\u2022failure to fully assimilate, integrate or retrain acquired employees, which may lead to retention risk with respect to both key acquired employees and our existing key employees or disruption to existing teams;\n\u2022differences between our values and those of our acquir"
+          },
+          {
+            "chunk_id": "c94d6090a52fc858",
+            "citation_label": "MICROSOFT CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 23,
+            "sparse_rank": null,
+            "rrf_score": 0.012048,
+            "rerank_score": -1.169,
+            "final_rank": 3,
+            "text": "e U.S., and China. Some jurisdictions also allow competitors or consumers to assert claims of anti-competitive conduct. U.S. federal and state antitrust authorities have previously brought enforcement actions and continue to scrutinize our business.\nThe European Commission (\u201cthe Commission\u201d) closely scrutinizes the design of high-volume Microsoft products and the terms on which we make certain technologies used in these products, such as file formats, programming interfaces, and protocols, available to other companies. Flagship product releases such as Windows can receive significant scrutiny under competition laws. For example, in 2004, the Commission ordered us to create new versions of our Windows operating system that do not include certain multimedia technologies and to provide our competitors with specifications for how to implement certain proprietary Windows communications protocols in their own products. In 2009, the Commission accepted a set of commitments we offered to address the Commission\u2019s concerns relating to competition in web browsing software, including an undertaking to address Commission concerns relating to interoperability. The web browsing commitments expired in 2014. The remaining obligations may limit our ability to innovate in Windows or other products in the future, diminish the developer appeal of the Windows platform, and increase our product development costs."
+          },
+          {
+            "chunk_id": "77d8391487c79159",
+            "citation_label": "Alarm.com Holdings, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 11,
+            "sparse_rank": 19,
+            "rrf_score": 0.026743,
+            "rerank_score": -1.5471,
+            "final_rank": 4,
+            "text": "lt in increased regulatory requirements and compliance costs which could harm our business, financial condition, cash flows and results of operations. In certain jurisdictions, regulatory requirements may be more stringent than in the United States. Noncompliance with applicable regulations or requirements could subject us to whistleblower complaints, investigations, sanctions, settlements, mandatory product recalls, enforcement actions, disgorgement of profits, fines, damages, civil and criminal penalties or injunctions, suspension or debarment from contracting with certain governments or other customers, the loss of export privileges, multi-jurisdictional liability, reputational harm, and other collateral consequences. If any governmental or other sanctions are imposed, or if we do not prevail in any possible civil or criminal litigation, our business, financial condition, cash flows and results of operations could be materially harmed. In addition, responding to any action will likely result in a materially significant diversion of management\u2019s attention and resources and an increase in defense costs and other professional fees. Enforcement actions and sanctions could further harm our business, financial condition, cash flows and results of operations.\nWe face many risks associated with our international business operations and our plans to expand internationally, which could harm our business, financial condition, cash flows and results of operations."
+          },
+          {
+            "chunk_id": "4597a96b7dc257e9",
+            "citation_label": "Medallia, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.016393,
+            "rerank_score": -1.6383,
+            "final_rank": 5,
+            "text": "tions and financial condition.\nRisks Related to Laws and Regulations\nOur business is subject to a variety of U.S. and foreign laws, many of which are unsettled and still developing and which could subject us to claims or otherwise harm our business.\nWe are subject to a variety of laws in the United States and internationally, including laws regarding privacy, data protection, data security, data retention and consumer protection, accessibility, sending and storing of electronic messages (and related traffic data where applicable), intellectual property, human resource services, employment and labor laws, workplace safety, consumer protection laws, anti-bribery and anti-corruption laws, import and export controls, immigration laws, securities laws and tax regulations, all of which are continuously evolving and developing. The scope and interpretation of these laws, regulations and other obligations that are or may be applicable to us, our customers or partners are often uncertain and may be conflicting, particularly laws and other obligations outside of the United States.\nIn addition, regulatory authorities around the world are considering a number of legislative and regulatory proposals concerning privacy, spam, data storage, data protection, data collection, content regulation, cybersecurity, government access to personal information and private data and other matters that may be applicable to our business. Compliance with these laws may require substantial investments or may provide technical challenges for our business."
+          },
+          {
+            "chunk_id": "552e8e59af38b0c6",
+            "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 15,
+            "rrf_score": 0.013333,
+            "rerank_score": -1.8715,
+            "final_rank": 6,
+            "text": "tates expose us to risks inherent in international operations.\nWe sell our services throughout the world and are subject to risks and challenges associated with international business. We intend to continue to expand our international sales efforts. The risks and challenges associated with sales to customers outside the United States or those that can affect international operations generally, include:\n\u2022natural disasters, acts of war, terrorism, and actual or threatened public health emergencies, including the ongoing COVID-19 pandemic and related public health measures and resulting changes to laws and regulations, including changes oriented toward protecting local businesses or restricting the movement of our or our customers\u2019 employees;\n\u2022localization of our services, including translation into foreign languages and associated expenses;\n\u2022regulatory frameworks or business practices favoring local competitors;\n\u2022pressure on the creditworthiness of sovereign nations, where we have customers and a balance of our cash, cash equivalents and marketable securities;\n\u2022foreign currency fluctuations and controls, which may make our services more expensive for international customers and could add volatility to our operating results;\n\u2022compliance with multiple, conflicting, ambiguous or evolving governmental laws and regulations, including employment, tax, privacy, anti-corruption, import/export, customs, anti-boycott, sanctions and embargoes, antitrust, data transfer, storage and protection, and industry-specific laws and regulations, including rules related to compliance by our third-"
+          }
+        ]
+      },
+      "elapsed_seconds": 267.88
+    },
+    {
+      "question": "How do these companies describe the impact of foreign currency exchange rate fluctuations on their reported results?",
+      "answer": "These companies describe the impact of foreign currency exchange rate fluctuations as follows:\n\nSynopsys Inc. notes that \"A weakening U.S. dollar relative to other currencies increases expenses of our foreign subsidiaries when they are translated into U.S. dollars in our consolidated statements of income. Likewise, a strengthening U.S. dollar relative to other currencies, including the renminbi or Yen, reduces revenue of our foreign subsidiaries upon translation and consolidation.\" [S1]\n\nCadence Design Systems Inc. states that \"Fluctuations in the rate of exchange between the U.S. dollar and the currencies of other countries where we conduct business could seriously affect our business, operating results or financial condition.\" Additionally, they mention that \"Volatility of currencies in countries where we conduct business... have had and may in the future have an effect on our revenue or operating results.\" [S2]\n\nLivePerson Inc. explains that \"Our results of operations may be adversely impacted due to our exposure to foreign currency exchange rate fluctuations,\" and provides a specific example: \"During the year ended December 31, 2020, we experienced a foreign currency exchange impact of approximately 0.6% percent, or approximately $2.2 million if held in constant currency, to our revenue.\" [S3]\n\nSalesforce.com Inc. mentions that \"We are exposed to fluctuations in currency exchange rates that have in the past and could in the future negatively impact our financial results and cash flows from changes in the value of the U.S. Dollar versus local currencies and the Euro versus the British Pound Sterling.\" [S4]\n\nDatadog, Inc., while not providing a specific example, notes that \"Our consolidated results of operations and cash flows are, therefore, subject to fluctuations due to changes in foreign currency exchange rates and may be adversely affected in the future due to changes in foreign exchange rates.\" [S5]\n\nAutodesk, Inc. describes their approach and potential impact: \"The fluctuations of currencies in which we conduct business can both increase and decrease our overall revenue and expenses for any given period. Although our foreign currency cash flow hedge program extends beyond the current quarter in order to reduce our exposure to foreign currency volatility, we do not attempt to completely mitigate this risk.\" [S6]",
+      "refused": false,
+      "citations": [
+        {
+          "marker": "[S1]",
+          "source_index": 1,
+          "chunk_id": "05480e0bbf066f3a",
+          "citation_label": "SYNOPSYS INC 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "SYNOPSYS INC",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "883241_10K_2021_0000883241-21-000022.htm",
+          "excerpt": "foreign currency exchange rates. A weakening U.S. dollar relative to other currencies increases expenses of our foreign subsidiaries when they are translated into U.S. dollars in our consolidated statements of income. Likewise, a strengthening U.S. dollar relative to other currencies, including the renminbi or Yen, reduces revenue of our foreign subsidiaries upon translation and consolidation. Exc"
+        },
+        {
+          "marker": "[S2]",
+          "source_index": 2,
+          "chunk_id": "d77f7de3cb66f189",
+          "citation_label": "CADENCE DESIGN SYSTEMS INC 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "CADENCE DESIGN SYSTEMS INC",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "813672_10K_2021_0000813672-21-000009.htm",
+          "excerpt": "relationships with the United States, including new tariffs, trade protection measures, import or export licensing requirements, sanctions, trade embargoes and other trade barriers, could harm our business, operating results or financial condition.\nThe effect of foreign exchange rate fluctuations may adversely impact our revenue, expenses, cash flows and financial condition.\nWe have significant op"
+        },
+        {
+          "marker": "[S3]",
+          "source_index": 3,
+          "chunk_id": "3b3cdab9ff9263ca",
+          "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "LIVEPERSON INC",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1102993_10K_2020_0001102993-21-000031.htm",
+          "excerpt": "e international regulatory environment relating to the Internet, mobile devices, software sales or export, and/or the Software-as-a-Service industry could have a material adverse effect on our business, results of operations and financial condition.\nRisks Related to our International Operations and Tax Issues\nOur results of operations may be adversely impacted due to our exposure to foreign curren"
+        },
+        {
+          "marker": "[S4]",
+          "source_index": 4,
+          "chunk_id": "0d46247d07c02229",
+          "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "SALESFORCE.COM, INC.",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "1108524_10K_2021_0001108524-22-000008.htm",
+          "excerpt": "tened interest in and taxation of companies participating in the digital economy. Governments\u2019 responses to the economic impact of COVID-19 may lead to tax rule changes that could materially and adversely affect our cash flows and financial results.\nWe are exposed to fluctuations in currency exchange rates that have in the past and could in the future negatively impact our financial results and ca"
+        },
+        {
+          "marker": "[S5]",
+          "source_index": 5,
+          "chunk_id": "cbf41a12b4ab3452",
+          "citation_label": "Datadog, Inc. 10-K 2020 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+          "company": "Datadog, Inc.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 7A",
+          "source_file": "1561550_10K_2020_0001564590-21-009770.htm",
+          "excerpt": "apan and Australia. Our consolidated results of operations and cash flows are, therefore, subject to fluctuations due to changes in foreign currency exchange rates and may be adversely affected in the future due to changes in foreign exchange rates. To date, we have not entered into any hedging arrangements with respect to foreign currency risk or other derivative financial instruments, although w"
+        },
+        {
+          "marker": "[S6]",
+          "source_index": 6,
+          "chunk_id": "15df6b7e0e1ef2ab",
+          "citation_label": "Autodesk, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "Autodesk, Inc.",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "769397_10K_2021_0000769397-21-000014.htm",
+          "excerpt": "results and cash flows. These exposures may change over time as business practices evolve and economic conditions change. We use derivative instruments to manage a portion of our cash flow exposure to fluctuations in foreign currency exchange rates. As part of our risk management strategy, we use foreign currency contracts to manage a portion of our exposures of underlying assets, liabilities, and"
+        }
+      ],
+      "warnings": [],
+      "model": "qwen2.5:7b-instruct-q4_K_M",
+      "usage": {
+        "prompt_eval_count": 2168,
+        "eval_count": 456,
+        "total_duration_ms": 336808,
+        "tokens_per_second": 3.7
+      },
+      "retrieval": {
+        "dense_hits": 30,
+        "sparse_hits": 30,
+        "fused_candidates": 47,
+        "found_by_both_retrievers": 13,
+        "rrf_k": 60,
+        "reranked_to": 6,
+        "rerank_changed_selection": true,
+        "promoted_by_reranker": [
+          "d77f7de3cb66f189",
+          "0d46247d07c02229",
+          "cbf41a12b4ab3452",
+          "15df6b7e0e1ef2ab"
+        ],
+        "demoted_by_reranker": [
+          "d0d4020e4b984b9e",
+          "0e2a5aa7254daf99",
+          "cd3794e0f17c34d8",
+          "cdc23e23a3a04314"
+        ],
+        "dense_top5": [
+          {
+            "chunk_id": "05480e0bbf066f3a",
+            "citation_label": "SYNOPSYS INC 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "0dff7aef19aeabb3",
+            "citation_label": "ORACLE CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "d0d4020e4b984b9e",
+            "citation_label": "Slack Technologies, Inc. 10-K 2021 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "3b3cdab9ff9263ca",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "6feef70d1c0cbc84",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 5,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "sparse_top5": [
+          {
+            "chunk_id": "e8230e9d728399af",
+            "citation_label": "Autodesk, Inc. 10-K 2021 \u00b7 Item 7 Management's Discussion and Analysis",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 1,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "abe3869d1c15a2b5",
+            "citation_label": "Medallia, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "d0d4020e4b984b9e",
+            "citation_label": "Slack Technologies, Inc. 10-K 2021 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 3,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "0ce2e73b7cf847df",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 4,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "9d5ef4c347a24354",
+            "citation_label": "Q2 Holdings, Inc. 10-K 2020 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 5,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "fused_top10": [
+          {
+            "chunk_id": "d0d4020e4b984b9e",
+            "citation_label": "Slack Technologies, Inc. 10-K 2021 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": 3,
+            "rrf_score": 0.031746,
+            "rerank_score": 2.3426,
+            "final_rank": 1
+          },
+          {
+            "chunk_id": "05480e0bbf066f3a",
+            "citation_label": "SYNOPSYS INC 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": 9,
+            "rrf_score": 0.030886,
+            "rerank_score": 4.8939,
+            "final_rank": 1
+          },
+          {
+            "chunk_id": "3b3cdab9ff9263ca",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": 6,
+            "rrf_score": 0.030777,
+            "rerank_score": 3.9934,
+            "final_rank": 3
+          },
+          {
+            "chunk_id": "0e2a5aa7254daf99",
+            "citation_label": "Autodesk, Inc. 10-K 2021 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 22,
+            "sparse_rank": 7,
+            "rrf_score": 0.02712,
+            "rerank_score": 2.0315,
+            "final_rank": 4
+          },
+          {
+            "chunk_id": "cd3794e0f17c34d8",
+            "citation_label": "ServiceNow, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 12,
+            "sparse_rank": 21,
+            "rrf_score": 0.026235,
+            "rerank_score": 2.6592,
+            "final_rank": 5
+          },
+          {
+            "chunk_id": "cdc23e23a3a04314",
+            "citation_label": "Palantir Technologies Inc. 10-K 2020 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 9,
+            "sparse_rank": 26,
+            "rrf_score": 0.026121,
+            "rerank_score": 1.8529,
+            "final_rank": 6
+          },
+          {
+            "chunk_id": "e5b4a8db25916a89",
+            "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 21,
+            "sparse_rank": 14,
+            "rrf_score": 0.025859,
+            "rerank_score": 3.1619,
+            "final_rank": 7
+          },
+          {
+            "chunk_id": "a4f61b452c8dc5ff",
+            "citation_label": "Slack Technologies, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 26,
+            "sparse_rank": 12,
+            "rrf_score": 0.025517,
+            "rerank_score": 2.5292,
+            "final_rank": 8
+          },
+          {
+            "chunk_id": "797bd10d8cce3ab1",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 28,
+            "sparse_rank": 11,
+            "rrf_score": 0.025448,
+            "rerank_score": 0.7757,
+            "final_rank": 9
+          },
+          {
+            "chunk_id": "b280d679bae1abdb",
+            "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 10,
+            "sparse_rank": 30,
+            "rrf_score": 0.025397,
+            "rerank_score": 2.4925,
+            "final_rank": 10
+          }
+        ],
+        "final_passages": [
+          {
+            "chunk_id": "05480e0bbf066f3a",
+            "citation_label": "SYNOPSYS INC 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": 9,
+            "rrf_score": 0.030886,
+            "rerank_score": 4.8939,
+            "final_rank": 1,
+            "text": "foreign currency exchange rates. A weakening U.S. dollar relative to other currencies increases expenses of our foreign subsidiaries when they are translated into U.S. dollars in our consolidated statements of income. Likewise, a strengthening U.S. dollar relative to other currencies, including the renminbi or Yen, reduces revenue of our foreign subsidiaries upon translation and consolidation. Exchange rates are subject to significant and rapid fluctuations, and therefore we cannot predict the prospective impact of exchange rate fluctuations. Although we engage in foreign currency hedging activity, we may be unable to hedge all of our foreign currency risk, which could have a negative impact on our results of operations.\nOur operating results may fluctuate in the future, which may adversely affect our stock price.\nOur operating results are subject to quarterly and annual fluctuations, which may adversely affect our stock price. Our historical results should not be viewed as indicative of our future performance due to these periodic fluctuations."
+          },
+          {
+            "chunk_id": "d77f7de3cb66f189",
+            "citation_label": "CADENCE DESIGN SYSTEMS INC 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 7,
+            "sparse_rank": null,
+            "rrf_score": 0.014925,
+            "rerank_score": 4.5968,
+            "final_rank": 2,
+            "text": "relationships with the United States, including new tariffs, trade protection measures, import or export licensing requirements, sanctions, trade embargoes and other trade barriers, could harm our business, operating results or financial condition.\nThe effect of foreign exchange rate fluctuations may adversely impact our revenue, expenses, cash flows and financial condition.\nWe have significant operations outside the United States. Our revenue from international operations as a percentage of total revenue was approximately 59% during fiscal 2020, 58% during fiscal 2019 and 57% during fiscal 2018. We expect that revenue from our international operations will continue to account for a significant portion of our total revenue. We also transact business in various foreign currencies, although the majority of our revenue contracts worldwide are denominated in U.S. dollars. Volatility of currencies in countries where we conduct business, most notably the U.S. dollar, Chinese renminbi, Japanese yen, European Union euro, British pound and Indian rupee have had and may in the future have an effect on our revenue or operating results.\nFluctuations in the rate of exchange between the U.S. dollar and the currencies of other countries where we conduct business could seriously affect our business, operating results or financial condition. For example, if we price our products and services in a foreign currency, we receive fewer U.S. dollars when this currency declines in value relative to the U.S. dollar. If we price our products and services in U.S."
+          },
+          {
+            "chunk_id": "3b3cdab9ff9263ca",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": 6,
+            "rrf_score": 0.030777,
+            "rerank_score": 3.9934,
+            "final_rank": 3,
+            "text": "e international regulatory environment relating to the Internet, mobile devices, software sales or export, and/or the Software-as-a-Service industry could have a material adverse effect on our business, results of operations and financial condition.\nRisks Related to our International Operations and Tax Issues\nOur results of operations may be adversely impacted due to our exposure to foreign currency exchange rate fluctuations.\nWe conduct business in currencies other than the U.S. dollar in Europe, Australia, Japan and Israel. As we continue to expand our international operations we become more exposed to the effects of fluctuations in currency exchange rates. As a result of the expanding size and scope of our international operations, our currency rate fluctuation risk associated with the exchange rate movement of the U.S. dollar has increased.\nSince we conduct business in currencies other than the U.S. dollar but report our financial results in U.S. dollars, fluctuations in currency exchange rates could adversely affect our results of operations. For example, during the year ended\nDecember 31, 2020, we experienced a foreign currency exchange impact of approximately 0.6% percent, or approximately $2.2 million if held in constant currency, to our revenue. Fluctuations in the value of the U.S. dollar relative to other foreign currencies could materially affect our revenue, cost of revenue and operating expenses, and result in foreign currency transaction gains and losses."
+          },
+          {
+            "chunk_id": "0d46247d07c02229",
+            "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 14,
+            "sparse_rank": null,
+            "rrf_score": 0.013514,
+            "rerank_score": 3.6854,
+            "final_rank": 4,
+            "text": "tened interest in and taxation of companies participating in the digital economy. Governments\u2019 responses to the economic impact of COVID-19 may lead to tax rule changes that could materially and adversely affect our cash flows and financial results.\nWe are exposed to fluctuations in currency exchange rates that have in the past and could in the future negatively impact our financial results and cash flows from changes in the value of the U.S. Dollar versus local currencies and the Euro versus the British Pound Sterling.\nWe primarily conduct our business in the following regions: the Americas, Europe and Asia Pacific. The expanding global scope of our business exposes us to risk of fluctuations in foreign currency markets, including in emerging markets. This exposure is the result of selling in multiple currencies, growth in our international investments, including data center expansion, additional headcount in foreign locations, and operating in countries where the functional currency is the local currency. Specifically, our results of operations and cash flows are subject to currency fluctuations primarily in Euro, British Pound Sterling, Japanese Yen, Canadian Dollar and Australian Dollar against the U.S. Dollar as well as the Euro against the British Pound Sterling. These exposures may change over time as business practices evolve, economic and political conditions change and evolving tax regulations come into effect. The fluctuations of currencies in which we conduct business can both increase and decrease our overall revenue and expenses for any given fiscal period."
+          },
+          {
+            "chunk_id": "cbf41a12b4ab3452",
+            "citation_label": "Datadog, Inc. 10-K 2020 \u00b7 Item 7A Quantitative and Qualitative Disclosures About Market Risk",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 20,
+            "sparse_rank": null,
+            "rrf_score": 0.0125,
+            "rerank_score": 3.6304,
+            "final_rank": 5,
+            "text": "apan and Australia. Our consolidated results of operations and cash flows are, therefore, subject to fluctuations due to changes in foreign currency exchange rates and may be adversely affected in the future due to changes in foreign exchange rates. To date, we have not entered into any hedging arrangements with respect to foreign currency risk or other derivative financial instruments, although we may choose to do so in the future. A hypothetical 10% increase or decrease in the relative value of the U.S. dollar to other currencies would not have a material effect on our operating results."
+          },
+          {
+            "chunk_id": "15df6b7e0e1ef2ab",
+            "citation_label": "Autodesk, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 24,
+            "sparse_rank": null,
+            "rrf_score": 0.011905,
+            "rerank_score": 3.4078,
+            "final_rank": 6,
+            "text": "results and cash flows. These exposures may change over time as business practices evolve and economic conditions change. We use derivative instruments to manage a portion of our cash flow exposure to fluctuations in foreign currency exchange rates. As part of our risk management strategy, we use foreign currency contracts to manage a portion of our exposures of underlying assets, liabilities, and other obligations, which exist as part of our ongoing business operations. These foreign currency instruments have maturities that extend for one to 18 months in the future and provide us with some protection against currency exposures. However, our attempts to hedge against these risks may not be completely successful, resulting in an adverse impact on our financial results.\nThe fluctuations of currencies in which we conduct business can both increase and decrease our overall revenue and expenses for any given period. Although our foreign currency cash flow hedge program extends beyond the current quarter in order to reduce our exposure to foreign currency volatility, we do not attempt to completely mitigate this risk, and in any case, will incur transaction fees in adopting such hedging programs. Such volatility, even when it increases our revenues or decreases our expenses, impacts our ability to accurately predict our future results and earnings."
+          }
+        ]
+      },
+      "elapsed_seconds": 340.22
+    },
+    {
+      "question": "What cybersecurity and data privacy risks are identified in the risk factors?",
+      "answer": "The risk factors identify several cybersecurity and data privacy risks:\n\n- Companies may be subject to breaches of their information security systems, which could result from sophisticated attacks or attempts by third parties to gain unauthorized access through various means such as hacking or phishing. [S1][S2][S5]\n\n- There is a risk that sensitive data, including personal identifying information and financial data, could be misused, released, gathered, monitored, or destroyed due to security breaches. [S2]\n\n- Companies may face particular privacy, data security, and data protection risks in Europe, particularly due to the European General Data Protection Regulation (GDPR). [S3]\n\n- There is a risk that cybersecurity measures might not be effective against all threats, especially during remote work scenarios like those caused by the ongoing COVID-19 pandemic. [S4][S5]\n\n- Companies may experience breaches of security measures due to human error, malfeasance, system errors or vulnerabilities, and attempts by employees to misuse their access. [S6]",
+      "refused": false,
+      "citations": [
+        {
+          "marker": "[S1]",
+          "source_index": 1,
+          "chunk_id": "f34c5c2d333ec65e",
+          "citation_label": "ZoomInfo Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "ZoomInfo Technologies Inc.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1794515_10K_2020_0001794515-21-000061.htm",
+          "excerpt": "and services, as well as our servers and computer systems and those of third parties that we rely on in our operations could be vulnerable to cybersecurity risks. As such, we may be subject to risks inherent to companies that process personal data. An increasing number of organizations have disclosed breaches of their information security systems, some of which have involved sophisticated and high"
+        },
+        {
+          "marker": "[S2]",
+          "source_index": 2,
+          "chunk_id": "94893a20a390895e",
+          "citation_label": "Paycom Software, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "Paycom Software, Inc.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1590955_10K_2020_0001564590-21-006660.htm",
+          "excerpt": "Item 1A.\nRisk Factors\nThe risk factors noted in this section and other factors noted throughout this Form 10-K, including those risks identified in Part II, Item 7, \u201cManagement\u2019s Discussion and Analysis of Financial Condition and Results of Operations,\u201d describe examples of risks, uncertainties and events that may cause our actual results to differ materially from those contained in any forward-lo"
+        },
+        {
+          "marker": "[S5]",
+          "source_index": 5,
+          "chunk_id": "561bad3ba2fce629",
+          "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "LIVEPERSON INC",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1102993_10K_2020_0001102993-21-000031.htm",
+          "excerpt": "lly, in response to the COVID-19 pandemic, a majority of our office employees are working remotely. We currently expect this to continue for the foreseeable future, which may potentially further increase the risk of cyber incidents or data breaches. Any such breach or unauthorized access, or attempts by outside parties to fraudulently induce employees, users, vendors or customers to disclose sensi"
+        },
+        {
+          "marker": "[S3]",
+          "source_index": 3,
+          "chunk_id": "20d474446642f072",
+          "citation_label": "Slack Technologies, Inc. 10-K 2021 \u00b7 Item 1 Business",
+          "company": "Slack Technologies, Inc.",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1",
+          "source_file": "1764925_10K_2021_0001764925-21-000050.htm",
+          "excerpt": "egulatory oversight of the Irish Data Protection Commission. We also maintain a self-certification under the current E.U.-U.S. and Swiss-U.S. Privacy Shield programs and offer European Union Model Clauses, also known as Standard Contractual Clauses. See the section titled \u201cRisk Factors-Risks Related to Information Technology, Intellectual Property, and Data Security and Privacy-We may face particu"
+        },
+        {
+          "marker": "[S4]",
+          "source_index": 4,
+          "chunk_id": "e3113e5c70cd39c2",
+          "citation_label": "Workday, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "Workday, Inc.",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "1327811_10K_2021_0001327811-21-000020.htm",
+          "excerpt": "r systems, software and data, as well as customer data and other user data, and to prevent data loss and detect security breaches, there can be no assurance that such measures will be effective against all cybersecurity threats or perceived threats.\nAdditionally, during the ongoing COVID-19 pandemic, and potentially beyond as remote work and resource access expand, there is an increased risk of cy"
+        },
+        {
+          "marker": "[S6]",
+          "source_index": 6,
+          "chunk_id": "ca01041ef704ab9e",
+          "citation_label": "ZoomInfo Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "ZoomInfo Technologies Inc.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1794515_10K_2020_0001794515-21-000061.htm",
+          "excerpt": "tems or facilities, or those of our customers or vendors, or attempting to fraudulently induce our employees, customers, vendors or other users of our systems into disclosing sensitive information, which may in turn be used to access our IT systems. Our cybersecurity programs and efforts to protect our systems and data, and to prevent, detect and respond to data security incidents, may not prevent"
+        }
+      ],
+      "warnings": [],
+      "model": "qwen2.5:7b-instruct-q4_K_M",
+      "usage": {
+        "prompt_eval_count": 2370,
+        "eval_count": 207,
+        "total_duration_ms": 263414,
+        "tokens_per_second": 3.72
+      },
+      "retrieval": {
+        "dense_hits": 30,
+        "sparse_hits": 30,
+        "fused_candidates": 55,
+        "found_by_both_retrievers": 5,
+        "rrf_k": 60,
+        "reranked_to": 6,
+        "rerank_changed_selection": true,
+        "promoted_by_reranker": [
+          "20d474446642f072",
+          "561bad3ba2fce629",
+          "ca01041ef704ab9e"
+        ],
+        "demoted_by_reranker": [
+          "b3daf026f3b2c061",
+          "b07053799591e8bd",
+          "d217a43208f0b3c1"
+        ],
+        "dense_top5": [
+          {
+            "chunk_id": "d217a43208f0b3c1",
+            "citation_label": "Workday, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "3c5869c79889538c",
+            "citation_label": "ZoomInfo Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "94893a20a390895e",
+            "citation_label": "Paycom Software, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "da9c020d62c176c8",
+            "citation_label": "Palantir Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "561bad3ba2fce629",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 5,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "sparse_top5": [
+          {
+            "chunk_id": "513633bdf337b273",
+            "citation_label": "SYNOPSYS INC 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 1,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "20d474446642f072",
+            "citation_label": "Slack Technologies, Inc. 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "94893a20a390895e",
+            "citation_label": "Paycom Software, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 3,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "b64b4a4be97c080a",
+            "citation_label": "CADENCE DESIGN SYSTEMS INC 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 4,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "458638aca1159ff4",
+            "citation_label": "Alarm.com Holdings, Inc. 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 5,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "fused_top10": [
+          {
+            "chunk_id": "94893a20a390895e",
+            "citation_label": "Paycom Software, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": 3,
+            "rrf_score": 0.031746,
+            "rerank_score": 3.6543,
+            "final_rank": 2
+          },
+          {
+            "chunk_id": "e3113e5c70cd39c2",
+            "citation_label": "Workday, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 7,
+            "sparse_rank": 11,
+            "rrf_score": 0.02901,
+            "rerank_score": 1.3218,
+            "final_rank": 4
+          },
+          {
+            "chunk_id": "f34c5c2d333ec65e",
+            "citation_label": "ZoomInfo Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 15,
+            "sparse_rank": 10,
+            "rrf_score": 0.027619,
+            "rerank_score": 3.8166,
+            "final_rank": 1
+          },
+          {
+            "chunk_id": "b3daf026f3b2c061",
+            "citation_label": "SALESFORCE.COM, INC. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 27,
+            "sparse_rank": 7,
+            "rrf_score": 0.02642,
+            "rerank_score": -0.6246,
+            "final_rank": 4
+          },
+          {
+            "chunk_id": "b07053799591e8bd",
+            "citation_label": "Workday, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 18,
+            "sparse_rank": 19,
+            "rrf_score": 0.025479,
+            "rerank_score": -3.3489,
+            "final_rank": 5
+          },
+          {
+            "chunk_id": "d217a43208f0b3c1",
+            "citation_label": "Workday, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.016393,
+            "rerank_score": 0.6697,
+            "final_rank": 6
+          },
+          {
+            "chunk_id": "513633bdf337b273",
+            "citation_label": "SYNOPSYS INC 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 1,
+            "rrf_score": 0.016393,
+            "rerank_score": -2.1474,
+            "final_rank": 7
+          },
+          {
+            "chunk_id": "3c5869c79889538c",
+            "citation_label": "ZoomInfo Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.016129,
+            "rerank_score": -2.6049,
+            "final_rank": 8
+          },
+          {
+            "chunk_id": "20d474446642f072",
+            "citation_label": "Slack Technologies, Inc. 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.016129,
+            "rerank_score": 1.4018,
+            "final_rank": 3
+          },
+          {
+            "chunk_id": "da9c020d62c176c8",
+            "citation_label": "Palantir Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": null,
+            "rrf_score": 0.015625,
+            "rerank_score": -1.4806,
+            "final_rank": 10
+          }
+        ],
+        "final_passages": [
+          {
+            "chunk_id": "f34c5c2d333ec65e",
+            "citation_label": "ZoomInfo Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 15,
+            "sparse_rank": 10,
+            "rrf_score": 0.027619,
+            "rerank_score": 3.8166,
+            "final_rank": 1,
+            "text": "and services, as well as our servers and computer systems and those of third parties that we rely on in our operations could be vulnerable to cybersecurity risks. As such, we may be subject to risks inherent to companies that process personal data. An increasing number of organizations have disclosed breaches of their information security systems, some of which have involved sophisticated and highly targeted attacks.\nWe are the target of attempts to identify and exploit system vulnerabilities and/or penetrate or bypass our security measures in order to gain unauthorized access to our systems, including an incident that has resulted in exfiltration of the contact records from our database. We employ multiple methods at different layers of our systems to defend against intrusion and attack, to protect our systems and to resolve and mitigate the impact of any incidents. Despite our efforts to keep our systems secure and to remedy identified vulnerabilities, future attacks could be successful and could result in substantial liability or business risk. Third parties will continue to attempt to gain unauthorized access to our systems or facilities through various means, including hacking into our systems or facilities, or those of our customers or vendors, or attempting to fraudulently induce our employees, customers, vendors or other users of our systems into disclosing sensitive information, which may in turn be used to access our IT systems."
+          },
+          {
+            "chunk_id": "94893a20a390895e",
+            "citation_label": "Paycom Software, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": 3,
+            "rrf_score": 0.031746,
+            "rerank_score": 3.6543,
+            "final_rank": 2,
+            "text": "Item 1A.\nRisk Factors\nThe risk factors noted in this section and other factors noted throughout this Form 10-K, including those risks identified in Part II, Item 7, \u201cManagement\u2019s Discussion and Analysis of Financial Condition and Results of Operations,\u201d describe examples of risks, uncertainties and events that may cause our actual results to differ materially from those contained in any forward-looking statement. If one or more of these risks or uncertainties materialize, or if underlying assumptions prove incorrect, actual outcomes may vary materially from those included in this Form 10-K.\nRisks Related to Our Business\nIf our security measures are breached, or unauthorized access to our clients\u2019 or their employees\u2019 sensitive data is otherwise obtained, our solution may not be perceived as being secure, clients may reduce the use of or stop using our solution, our ability to attract new clients may be harmed and we may incur significant liabilities.\nOur solution involves the collection, storage and transmission of clients\u2019 and their employees\u2019 confidential and proprietary information, including personal identifying information, as well as financial and payroll data. HCM software is often targeted in cyber-attacks, including computer viruses, worms, phishing attacks, malicious software programs and other information security breaches, which could result in the unauthorized release, gathering, monitoring, misuse, loss or destruction of our clients\u2019 sensitive data or otherwise disrupt our clients\u2019 or other third parties\u2019 business operations."
+          },
+          {
+            "chunk_id": "20d474446642f072",
+            "citation_label": "Slack Technologies, Inc. 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.016129,
+            "rerank_score": 1.4018,
+            "final_rank": 3,
+            "text": "egulatory oversight of the Irish Data Protection Commission. We also maintain a self-certification under the current E.U.-U.S. and Swiss-U.S. Privacy Shield programs and offer European Union Model Clauses, also known as Standard Contractual Clauses. See the section titled \u201cRisk Factors-Risks Related to Information Technology, Intellectual Property, and Data Security and Privacy-We may face particular privacy, data security, and data protection risks in Europe particularly due to the European General Data Protection Regulation.\u201d\nWe maintain a privacy policy that describes how Slack collects, uses, and discloses information, and what choices organizations and users have.\nCompetition\nThe market for services like Slack is emerging, rapidly evolving, and fragmented, and we believe that Slack represents a new category of business technology. As a result, we principally compete against collaboration and communication tools and products from established vendors, such as Microsoft, productivity tool and email providers, such as Google, unified communications providers, such as Cisco, and consumer application companies that have entered the business software market, such as Facebook. We also compete with smaller companies that offer niche or point products that attempt to address certain problems that Slack addresses. These smaller companies include companies that specialize in voice or video communication, instant messaging, email filtering, and email inbox organization, business workflows, team-based collaboration, intranet creation and maintenance, and other functionality."
+          },
+          {
+            "chunk_id": "e3113e5c70cd39c2",
+            "citation_label": "Workday, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 7,
+            "sparse_rank": 11,
+            "rrf_score": 0.02901,
+            "rerank_score": 1.3218,
+            "final_rank": 4,
+            "text": "r systems, software and data, as well as customer data and other user data, and to prevent data loss and detect security breaches, there can be no assurance that such measures will be effective against all cybersecurity threats or perceived threats.\nAdditionally, during the ongoing COVID-19 pandemic, and potentially beyond as remote work and resource access expand, there is an increased risk of cybersecurity-related events such as COVID-19 themed phishing attacks, exploitation of any cybersecurity flaws that may exist, an increase in the number cybersecurity threats or attacks, and other security challenges as a result of most of our employees and our service providers continuing to work remotely from non-corporate managed networks.\nFurthermore, we have acquired or partnered with a number of companies, products, services, and technologies over the years, as well as incorporated third-party products, services and technologies into our products and services. Although we devote significant resources to address any known security issues with respect to such acquisitions, partnerships, and incorporated technologies, we may still inherit additional risks when they are integrated within Workday. In addition, if a high-profile security breach occurs with respect to an industry peer, our customers and potential customers may generally lose trust in the security of financial management, spend management, human capital management, planning, or analytics applications, or in cloud applications for enterprises in general."
+          },
+          {
+            "chunk_id": "561bad3ba2fce629",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 5,
+            "sparse_rank": null,
+            "rrf_score": 0.015385,
+            "rerank_score": 1.1428,
+            "final_rank": 5,
+            "text": "lly, in response to the COVID-19 pandemic, a majority of our office employees are working remotely. We currently expect this to continue for the foreseeable future, which may potentially further increase the risk of cyber incidents or data breaches. Any such breach or unauthorized access, or attempts by outside parties to fraudulently induce employees, users, vendors or customers to disclose sensitive information in order to gain access to our data or data of our customers, users, experts or consumers, including, but not limited to, individual personal information and financial credit or debit card data that is protected by law or contract, could result in significant legal and financial exposure, damage to our reputation, and a loss of confidence in the security of our products and services that could potentially have an adverse effect on our business.\nWhile we continue to expand our focus on this issue and are taking measures to safeguard our products and services from cybersecurity threats and vulnerabilities in desktop computers, mobile phones, smartphones and handheld devices, cyber-attacks and other security incidents continue to evolve in sophistication and frequency. Because the techniques used to obtain unauthorized access, disable or degrade service, or sabotage systems, are constantly evolving in sophisticated ways to avoid detection and often are not recognized until launched against a target, it may be difficult or impossible for us to anticipate or identify these techniques or to implement adequate preventative measures."
+          },
+          {
+            "chunk_id": "ca01041ef704ab9e",
+            "citation_label": "ZoomInfo Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 24,
+            "sparse_rank": null,
+            "rrf_score": 0.011905,
+            "rerank_score": 1.0472,
+            "final_rank": 6,
+            "text": "tems or facilities, or those of our customers or vendors, or attempting to fraudulently induce our employees, customers, vendors or other users of our systems into disclosing sensitive information, which may in turn be used to access our IT systems. Our cybersecurity programs and efforts to protect our systems and data, and to prevent, detect and respond to data security incidents, may not prevent these threats or provide adequate security. Further, we may be subject to additional liability risks associated with data security breaches or other incidents by virtue of the private right of action granted to individuals under certain data privacy laws for actions arising from certain data security incidents.\nWe may experience breaches of our security measures due to human error, malfeasance, system errors or vulnerabilities, or other irregularities including attempts by former, current or future employees to misuse their authorized access and/or gain unauthorized access to our systems. Actual or perceived breaches of our security could subject us to regulatory investigations and orders, litigation, indemnity obligations, damages, penalties, fines and other costs in connection with actual and alleged contractual breaches, violations of applicable laws and regulations and other liabilities. Any such incident could also materially damage our reputation and harm our business, results of operations and financial condition. We maintain errors, omissions, and cyber liability insurance policies covering certain security and privacy damages."
+          }
+        ]
+      },
+      "elapsed_seconds": 266.71
+    },
+    {
+      "question": "What does management say about competition and pricing pressure in their markets?",
+      "answer": "Management discusses competition and pricing pressures across several companies:\n\n- Jamf Holding Corp. notes that as they expand into new product offerings, they expect increased competition which could lead to reduced sales and margins ([S1]).\n- Paycom Software Inc. mentions competitive pressures from various HCM solution providers, including legacy enterprise software firms, and warns that if unable to maintain pricing levels or billing terms, their operating results would be negatively impacted due to reduced sales and margins ([S2]).\n- Datadog Inc. states they face both product and technology competition as well as pricing pressure from competitors offering lower-priced solutions, which could harm market acceptance and financial performance ([S3]).\n- Palantir Technologies Inc. highlights that competitive pressures may result in fewer orders, reduced revenue and margins, and loss of market share if the company fails to compete effectively or if industry consolidation impacts customer perceptions ([S4]).\n- Workday Inc. warns that competitors' earlier product introductions, lower pricing, and more attractive terms could lead to reduced sales, margins, and competitive market position ([S5]).\n- TYLER TECHNOLOGIES INC points out that greater technical, marketing, and financial resources of competitors may result in pricing pressure, fewer client orders, reduced gross margins, and loss of market share as new entrants challenge their market position ([S6]).",
+      "refused": false,
+      "citations": [
+        {
+          "marker": "[S1]",
+          "source_index": 1,
+          "chunk_id": "4b72ddecfb822e10",
+          "citation_label": "Jamf Holding Corp. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "Jamf Holding Corp.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1721947_10K_2020_0001558370-21-002391.htm",
+          "excerpt": "t entrants, we expect competition to intensify in the future. For example, as we expand our focus into new use cases or other product offerings beyond Jamf Now, Jamf Pro, Jamf School, Jamf Connect and Jamf Protect, we expect competition to increase. Pricing pressures and increased competition generally could result in reduced sales, reduced margins, losses or the failure of our products to achieve"
+        },
+        {
+          "marker": "[S2]",
+          "source_index": 2,
+          "chunk_id": "f33231d2267c9c34",
+          "citation_label": "Paycom Software, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "Paycom Software, Inc.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1590955_10K_2020_0001564590-21-006660.htm",
+          "excerpt": "ng pressures. Similarly, some competitors offer different billing terms, which has resulted in pressures on our billing terms. If we are unable to maintain our pricing levels and our billing terms, our operating results would be negatively impacted. In addition, pricing pressures and increased competition generally could result in reduced sales, reduced margins, losses or the failure of our soluti"
+        },
+        {
+          "marker": "[S3]",
+          "source_index": 3,
+          "chunk_id": "c9aa898127f59185",
+          "citation_label": "Datadog, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "Datadog, Inc.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1561550_10K_2020_0001564590-21-009770.htm",
+          "excerpt": "ducts and platform capabilities. In addition to product and technology competition, we face pricing competition. Some of our competitors offer their solutions at a lower price, which has resulted in, and may continue to result in, pricing pressures.\nFor all of these reasons, we may not be able to compete successfully against our current or future competitors, and this competition could result in t"
+        },
+        {
+          "marker": "[S4]",
+          "source_index": 4,
+          "chunk_id": "ebaa937eac8e1596",
+          "citation_label": "Palantir Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "Palantir Technologies Inc.",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "1321655_10K_2020_0001193125-21-060650.htm",
+          "excerpt": ", or develop and expand their product and service offerings more quickly than we do. These competitive pressures in our market, or our failure to compete effectively, may result in fewer orders, reduced revenue and margins, and loss of market share. In addition, it is possible that industry consolidation may impact customers\u2019 perceptions of the viability of smaller or even mid-size software firms "
+        },
+        {
+          "marker": "[S5]",
+          "source_index": 5,
+          "chunk_id": "ca076cf0fee4f44f",
+          "citation_label": "Workday, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+          "company": "Workday, Inc.",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1A",
+          "source_file": "1327811_10K_2021_0001327811-21-000020.htm",
+          "excerpt": "e more accepted than our products, if they are successful in bringing their products or services to market earlier than ours, or if their products or services are more technologically capable than ours, then our revenues could be adversely affected. In addition, our competitors may offer their products and services at a lower price, or, particularly during the ongoing COVID-19 pandemic, may offer "
+        },
+        {
+          "marker": "[S6]",
+          "source_index": 6,
+          "chunk_id": "c98607a9b68f37a7",
+          "citation_label": "TYLER TECHNOLOGIES INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+          "company": "TYLER TECHNOLOGIES INC",
+          "ticker": "",
+          "fiscal_year": "2020",
+          "item": "Item 1A",
+          "source_file": "860731_10K_2020_0000860731-21-000014.htm",
+          "excerpt": "rs have greater technical, marketing, and financial resources than we do. We cannot assure you that such competitors will not develop products or offer services that are superior to our products or services or that achieve greater market acceptance.\nWe also compete with internal, centralized IT departments of governmental entities, which requires us to persuade the end-user to stop the internal se"
+        }
+      ],
+      "warnings": [],
+      "model": "qwen2.5:7b-instruct-q4_K_M",
+      "usage": {
+        "prompt_eval_count": 2352,
+        "eval_count": 266,
+        "total_duration_ms": 277409,
+        "tokens_per_second": 3.72
+      },
+      "retrieval": {
+        "dense_hits": 30,
+        "sparse_hits": 30,
+        "fused_candidates": 50,
+        "found_by_both_retrievers": 10,
+        "rrf_k": 60,
+        "reranked_to": 6,
+        "rerank_changed_selection": true,
+        "promoted_by_reranker": [
+          "4b72ddecfb822e10",
+          "f33231d2267c9c34",
+          "ebaa937eac8e1596",
+          "ca076cf0fee4f44f",
+          "c98607a9b68f37a7"
+        ],
+        "demoted_by_reranker": [
+          "19242ee725a2a436",
+          "97c7547f11d87dc4",
+          "c5ad76e24be70f44",
+          "6b2752e090780ee1",
+          "715f4370fd4bfece"
+        ],
+        "dense_top5": [
+          {
+            "chunk_id": "28749e4acae902a4",
+            "citation_label": "CADENCE DESIGN SYSTEMS INC 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "f33231d2267c9c34",
+            "citation_label": "Paycom Software, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "e90db62d8e787f2b",
+            "citation_label": "Paycom Software, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "c118c3456a1b7edf",
+            "citation_label": "Cloudflare, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "8037d3e1019f6d84",
+            "citation_label": "Medallia, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 5,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "sparse_top5": [
+          {
+            "chunk_id": "68a071809891ffb8",
+            "citation_label": "Palantir Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 1,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "97c7547f11d87dc4",
+            "citation_label": "Q2 Holdings, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "c5ad76e24be70f44",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 3,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "e718ab22a5a824c7",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 4,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "6b2752e090780ee1",
+            "citation_label": "ADOBE INC. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 5,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "fused_top10": [
+          {
+            "chunk_id": "19242ee725a2a436",
+            "citation_label": "ORACLE CORP 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 14,
+            "sparse_rank": 7,
+            "rrf_score": 0.028439,
+            "rerank_score": 0.2075,
+            "final_rank": 1
+          },
+          {
+            "chunk_id": "97c7547f11d87dc4",
+            "citation_label": "Q2 Holdings, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 22,
+            "sparse_rank": 2,
+            "rrf_score": 0.028324,
+            "rerank_score": -0.6784,
+            "final_rank": 2
+          },
+          {
+            "chunk_id": "c5ad76e24be70f44",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 21,
+            "sparse_rank": 3,
+            "rrf_score": 0.028219,
+            "rerank_score": 0.4838,
+            "final_rank": 3
+          },
+          {
+            "chunk_id": "6b2752e090780ee1",
+            "citation_label": "ADOBE INC. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 20,
+            "sparse_rank": 5,
+            "rrf_score": 0.027885,
+            "rerank_score": -0.1724,
+            "final_rank": 4
+          },
+          {
+            "chunk_id": "715f4370fd4bfece",
+            "citation_label": "CrowdStrike Holdings, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 17,
+            "sparse_rank": 8,
+            "rrf_score": 0.027693,
+            "rerank_score": 1.8,
+            "final_rank": 5
+          },
+          {
+            "chunk_id": "c9aa898127f59185",
+            "citation_label": "Datadog, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 11,
+            "sparse_rank": 14,
+            "rrf_score": 0.027598,
+            "rerank_score": 2.4396,
+            "final_rank": 3
+          },
+          {
+            "chunk_id": "b69260665fa94d61",
+            "citation_label": "Jamf Holding Corp. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 15,
+            "sparse_rank": 11,
+            "rrf_score": 0.027418,
+            "rerank_score": -1.7946,
+            "final_rank": 7
+          },
+          {
+            "chunk_id": "4b72ddecfb822e10",
+            "citation_label": "Jamf Holding Corp. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 6,
+            "sparse_rank": 22,
+            "rrf_score": 0.027347,
+            "rerank_score": 3.7797,
+            "final_rank": 1
+          },
+          {
+            "chunk_id": "4f20f6b887151e3e",
+            "citation_label": "INTUIT INC 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 24,
+            "sparse_rank": 16,
+            "rrf_score": 0.025063,
+            "rerank_score": -2.3366,
+            "final_rank": 9
+          },
+          {
+            "chunk_id": "4f6c72458e5ede36",
+            "citation_label": "ServiceNow, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 23,
+            "sparse_rank": 18,
+            "rrf_score": 0.024869,
+            "rerank_score": 0.4901,
+            "final_rank": 10
+          }
+        ],
+        "final_passages": [
+          {
+            "chunk_id": "4b72ddecfb822e10",
+            "citation_label": "Jamf Holding Corp. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 6,
+            "sparse_rank": 22,
+            "rrf_score": 0.027347,
+            "rerank_score": 3.7797,
+            "final_rank": 1,
+            "text": "t entrants, we expect competition to intensify in the future. For example, as we expand our focus into new use cases or other product offerings beyond Jamf Now, Jamf Pro, Jamf School, Jamf Connect and Jamf Protect, we expect competition to increase. Pricing pressures and increased competition generally could result in reduced sales, reduced margins, losses or the failure of our products to achieve or maintain more widespread market acceptance.\nWe are in a highly competitive market, and competitive pressures from existing and new companies, including as a result of consolidation in our market, may harm our business, revenues, growth rates and market share.\nOur products seek to serve multiple markets, and we are subject to competition from a wide and varied field of competitors. Some competitors, particularly new and early-stage companies and large cross-platform enterprise providers, could focus all of their energy and resources on one product line or use case and, as a result, any one competitor could develop a more successful product or service in a particular market, which could decrease our market share and harm our brand recognition and results of operation. In addition, some of our competitors may be able to leverage their relationships with customers based on an installed base of products or to incorporate functionality into existing products to gain business in a manner that discourages customers from including us in competitive bidding processes, evaluating and/or purchasing our products."
+          },
+          {
+            "chunk_id": "f33231d2267c9c34",
+            "citation_label": "Paycom Software, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.016129,
+            "rerank_score": 2.6109,
+            "final_rank": 2,
+            "text": "ng pressures. Similarly, some competitors offer different billing terms, which has resulted in pressures on our billing terms. If we are unable to maintain our pricing levels and our billing terms, our operating results would be negatively impacted. In addition, pricing pressures and increased competition generally could result in reduced sales, reduced margins, losses or the failure of our solution to maintain widespread market acceptance, any of which could adversely affect our business, operating results or financial condition.\nWe compete with firms that provide HCM solutions by various means. Many providers continue to deliver legacy enterprise software, but as demand for greater flexibility and access to information grows, we believe there will be increased competition in the delivery of HCM cloud-based solutions by other SaaS providers. Our competitors offer HCM solutions that may overlap with one, several or all categories of applications and include companies such as Automatic Data Processing, Inc., Ceridian HCM, Inc., Cornerstone OnDemand, Inc., Intuit, Inc., Insperity, Inc., Oracle Corporation, Paychex, Inc., Paylocity Holding Corporation, Paycor Inc., SAP SE, ServiceNow, Inc., Ultimate Kronos Group, Workday, Inc. and other local and regional providers.\nCompetition in the HCM solutions market is primarily based on service responsiveness, application quality and reputation, breadth of service and product offering and price."
+          },
+          {
+            "chunk_id": "c9aa898127f59185",
+            "citation_label": "Datadog, Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 11,
+            "sparse_rank": 14,
+            "rrf_score": 0.027598,
+            "rerank_score": 2.4396,
+            "final_rank": 3,
+            "text": "ducts and platform capabilities. In addition to product and technology competition, we face pricing competition. Some of our competitors offer their solutions at a lower price, which has resulted in, and may continue to result in, pricing pressures.\nFor all of these reasons, we may not be able to compete successfully against our current or future competitors, and this competition could result in the failure of our platform to continue to achieve or maintain market acceptance, any of which would harm our business, results of operations, and financial condition.\nThe market for our solutions may develop more slowly or differently than we expect.\nIt is difficult to predict customer adoption rates and demand for our products, the entry of competitive products or the future growth rate and size of the cloud-based software and SaaS business software markets. The expansion of these markets depends on a number of factors, including: the cost, performance, and perceived value associated with cloud-based and SaaS business software as an alternative to legacy systems, as well as the ability of cloud-based software and SaaS providers to address heightened data security and privacy concerns. If we have a security incident or other cloud-based software and SaaS providers experience security incidents, loss of customer data, disruptions in delivery or other similar problems, which is an increasing focus of the public and investors in recent years, the market for these applications as a whole, including our platform and products, may be negatively affected."
+          },
+          {
+            "chunk_id": "ebaa937eac8e1596",
+            "citation_label": "Palantir Technologies Inc. 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 13,
+            "sparse_rank": null,
+            "rrf_score": 0.013699,
+            "rerank_score": 2.2372,
+            "final_rank": 4,
+            "text": ", or develop and expand their product and service offerings more quickly than we do. These competitive pressures in our market, or our failure to compete effectively, may result in fewer orders, reduced revenue and margins, and loss of market share. In addition, it is possible that industry consolidation may impact customers\u2019 perceptions of the viability of smaller or even mid-size software firms and consequently customers\u2019 willingness to purchase from such firms.\nWe may not compete successfully against our current or potential competitors. If we are unable to compete successfully, or if competing successfully requires us to take costly actions in response to the actions of our competitors, our business, financial condition and results of operations could be adversely affected. In addition, companies competing with us may have an entirely different pricing or distribution model. Increased competition could result in fewer customer orders, price reductions, reduced margins, and loss of market share, any of which could harm our business and results of operations.\nOur culture emphasizes rapid innovation and advancement of successful hires who may in some cases have limited prior industry expertise and prioritizes customer outcomes over short-term financial results, and if we cannot maintain or properly manage our culture as we grow, our business may be harmed."
+          },
+          {
+            "chunk_id": "ca076cf0fee4f44f",
+            "citation_label": "Workday, Inc. 10-K 2021 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 16,
+            "sparse_rank": null,
+            "rrf_score": 0.013158,
+            "rerank_score": 2.0119,
+            "final_rank": 5,
+            "text": "e more accepted than our products, if they are successful in bringing their products or services to market earlier than ours, or if their products or services are more technologically capable than ours, then our revenues could be adversely affected. In addition, our competitors may offer their products and services at a lower price, or, particularly during the ongoing COVID-19 pandemic, may offer price concessions, delayed payment terms, financing terms, or other terms and conditions that are more enticing to potential customers. Pricing pressures and increased competition could result in reduced sales, reduced margins, losses, or a failure to maintain or improve our competitive market position, any of which could adversely affect our business and operating results.\nIf we are not able to realize a return on our current development efforts or offer new features, enhancements, and modifications to our services that are desired by current or potential customers, our business and operating results could be adversely affected.\nDeveloping software applications and related enhancements, features, and modifications is expensive, and the investment in product development often involves a long return on investment cycle. Accelerated application introductions and short application life cycles require high levels of expenditures that could adversely affect our operating results if not offset by revenue increases, and we believe that we must continue to dedicate a significant amount of resources to our development efforts to maintain our competitive position."
+          },
+          {
+            "chunk_id": "c98607a9b68f37a7",
+            "citation_label": "TYLER TECHNOLOGIES INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 13,
+            "rrf_score": 0.013699,
+            "rerank_score": 1.9691,
+            "final_rank": 6,
+            "text": "rs have greater technical, marketing, and financial resources than we do. We cannot assure you that such competitors will not develop products or offer services that are superior to our products or services or that achieve greater market acceptance.\nWe also compete with internal, centralized IT departments of governmental entities, which requires us to persuade the end-user to stop the internal service and outsource to us. In addition, our clients and prospective clients could elect to provide information management services internally through new or existing departments, which could reduce the market for our services.\nWe could face additional competition as other established and emerging companies enter the public sector software application market and new products and technologies are introduced. Increased competition could result in pricing pressure, fewer client orders, reduced gross margins, and loss of market share. Current and potential competitors may make strategic acquisitions or establish cooperative relationships among themselves or with third parties, thereby increasing the ability of their products to address the needs of our prospective clients. It is possible that new competitors or alliances may emerge and rapidly gain significant market share. We cannot assure you that we will be able to compete successfully against current and future competitors, and the failure to do so would have a material adverse effect upon our business.\nFixed-price contracts may affect our profits."
+          }
+        ]
+      },
+      "elapsed_seconds": 280.15
+    },
+    {
+      "question": "What is the CEO's home address and personal mobile phone number?",
+      "answer": "The filings provided do not contain enough information to answer this question. The documents only provide corporate addresses and general contact numbers for Intuit Inc., but no specific information about the CEO's personal home address or mobile phone number is included. [S5][S6]",
+      "refused": true,
+      "citations": [
+        {
+          "marker": "[S5]",
+          "source_index": 5,
+          "chunk_id": "aa0325414822a3d7",
+          "citation_label": "INTUIT INC 10-K 2021 \u00b7 Item 1 Business",
+          "company": "INTUIT INC",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1",
+          "source_file": "896878_10K_2021_0000896878-21-000233.htm",
+          "excerpt": "in telephone number is 650-944-6000. When we refer to \u201cwe,\u201d \u201cour\u201d or \u201cIntuit\u201d in this Annual Report on Form 10-K, we mean the current Delaware corporation (Intuit Inc.) and its California predecessor, as well as all of our consolidated subsidiaries.\nAvailable Information\nOur corporate website, www.intuit.com, provides materials for investors and information relating to Intuit\u2019s corporate governanc"
+        },
+        {
+          "marker": "[S6]",
+          "source_index": 6,
+          "chunk_id": "339b77ccca25739f",
+          "citation_label": "INTUIT INC 10-K 2021 \u00b7 Item 1 Business",
+          "company": "INTUIT INC",
+          "ticker": "",
+          "fiscal_year": "2021",
+          "item": "Item 1",
+          "source_file": "896878_10K_2021_0000896878-21-000233.htm",
+          "excerpt": "r Relations, Intuit Inc., P.O. Box 7850, Mountain View, California 94039-7850 or by calling 650-944-6000 or by emailing investor_relations@intuit.com.\nBUSINESS OVERVIEW\nIntuit\u2019s Mission\nAt Intuit, our mission is to power prosperity around the world. All of our customers have a common set of needs. They are trying to make ends meet, maximize their tax refund, save money and pay off debt.\nThose who "
+        }
+      ],
+      "warnings": [],
+      "model": "qwen2.5:7b-instruct-q4_K_M",
+      "usage": {
+        "prompt_eval_count": 2597,
+        "eval_count": 54,
+        "total_duration_ms": 247092,
+        "tokens_per_second": 3.68
+      },
+      "retrieval": {
+        "dense_hits": 30,
+        "sparse_hits": 30,
+        "fused_candidates": 59,
+        "found_by_both_retrievers": 1,
+        "rrf_k": 60,
+        "reranked_to": 6,
+        "rerank_changed_selection": true,
+        "promoted_by_reranker": [
+          "9ef07b5060f05636",
+          "06adb720d04be630",
+          "6044be8c3e40f726",
+          "1be2b0655b38c7d4",
+          "aa0325414822a3d7",
+          "339b77ccca25739f"
+        ],
+        "demoted_by_reranker": [
+          "237821a67a56f065",
+          "484c102372e906bb",
+          "e01ffa9834ee5108",
+          "bc53afa0507f3cf9",
+          "ab3dcbe79f4fa195",
+          "b652019024b8b8cb"
+        ],
+        "dense_top5": [
+          {
+            "chunk_id": "484c102372e906bb",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "bc53afa0507f3cf9",
+            "citation_label": "Datadog, Inc. 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "b652019024b8b8cb",
+            "citation_label": "MICROSOFT CORP 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "6044be8c3e40f726",
+            "citation_label": "SYNOPSYS INC 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "5054c1e47dd5b677",
+            "citation_label": "CrowdStrike Holdings, Inc. 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 5,
+            "sparse_rank": null,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "sparse_top5": [
+          {
+            "chunk_id": "e01ffa9834ee5108",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 1,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "ab3dcbe79f4fa195",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "b90706076b205acc",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 3,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "21e3b77b77266fb6",
+            "citation_label": "Jamf Holding Corp. 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 4,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          },
+          {
+            "chunk_id": "e7788532586648df",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 5,
+            "rrf_score": 0.0,
+            "rerank_score": null,
+            "final_rank": null
+          }
+        ],
+        "fused_top10": [
+          {
+            "chunk_id": "237821a67a56f065",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 7 Management's Discussion and Analysis",
+            "retrievers": [
+              "dense",
+              "sparse"
+            ],
+            "dense_rank": 23,
+            "sparse_rank": 9,
+            "rrf_score": 0.026541,
+            "rerank_score": -10.6653,
+            "final_rank": 1
+          },
+          {
+            "chunk_id": "484c102372e906bb",
+            "citation_label": "DATTO HOLDING CORP. 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "rrf_score": 0.016393,
+            "rerank_score": -10.9588,
+            "final_rank": 2
+          },
+          {
+            "chunk_id": "e01ffa9834ee5108",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 1,
+            "rrf_score": 0.016393,
+            "rerank_score": -11.0464,
+            "final_rank": 3
+          },
+          {
+            "chunk_id": "bc53afa0507f3cf9",
+            "citation_label": "Datadog, Inc. 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "rrf_score": 0.016129,
+            "rerank_score": -11.0617,
+            "final_rank": 4
+          },
+          {
+            "chunk_id": "ab3dcbe79f4fa195",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1A Risk Factors",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 2,
+            "rrf_score": 0.016129,
+            "rerank_score": -11.2168,
+            "final_rank": 5
+          },
+          {
+            "chunk_id": "b652019024b8b8cb",
+            "citation_label": "MICROSOFT CORP 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "rrf_score": 0.015873,
+            "rerank_score": -11.0297,
+            "final_rank": 6
+          },
+          {
+            "chunk_id": "b90706076b205acc",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 3,
+            "rrf_score": 0.015873,
+            "rerank_score": -10.3835,
+            "final_rank": 7
+          },
+          {
+            "chunk_id": "6044be8c3e40f726",
+            "citation_label": "SYNOPSYS INC 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": null,
+            "rrf_score": 0.015625,
+            "rerank_score": -8.27,
+            "final_rank": 3
+          },
+          {
+            "chunk_id": "21e3b77b77266fb6",
+            "citation_label": "Jamf Holding Corp. 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 4,
+            "rrf_score": 0.015625,
+            "rerank_score": -11.2365,
+            "final_rank": 9
+          },
+          {
+            "chunk_id": "5054c1e47dd5b677",
+            "citation_label": "CrowdStrike Holdings, Inc. 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 5,
+            "sparse_rank": null,
+            "rrf_score": 0.015385,
+            "rerank_score": -9.6015,
+            "final_rank": 10
+          }
+        ],
+        "final_passages": [
+          {
+            "chunk_id": "9ef07b5060f05636",
+            "citation_label": "ADOBE INC. 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 12,
+            "sparse_rank": null,
+            "rrf_score": 0.013889,
+            "rerank_score": -5.4655,
+            "final_rank": 1,
+            "text": "gy to hardware manufacturers, software developers and service providers for use in their products and solutions. Our products run on personal and server-based computers, as well as on smartphones, tablets and other devices, depending on the product. We have operations in the Americas; Europe, Middle East and Africa (\u201cEMEA\u201d); and Asia-Pacific (\u201cAPAC\u201d).\nAdobe was originally incorporated in California in October 1983 and was reincorporated in Delaware in May 1997. Our executive offices and principal facilities are located at 345 Park Avenue, San Jose, California 95110-2704. Our telephone number is 408-536-6000 and our website is www.adobe.com. Investors can obtain copies of our SEC filings from this site free of charge, as well as from the SEC website at www.sec.gov. The information posted to our website is not incorporated into this Annual Report on Form 10-K.\nBUSINESS OVERVIEW\nFor over 35 years, Adobe\u2019s innovations have transformed how individuals, teams, businesses and governments engage and interact with their constituents in print and online. We help our customers create and deliver the most compelling experiences in streamlined workflows and optimize those experiences for greater return on investment. Our solutions turn ordinary interactions into valuable digital experiences, across media and devices, anytime, anywhere."
+          },
+          {
+            "chunk_id": "06adb720d04be630",
+            "citation_label": "Fortinet, Inc. 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 18,
+            "sparse_rank": null,
+            "rrf_score": 0.012821,
+            "rerank_score": -7.5834,
+            "final_rank": 2,
+            "text": "f December 31, 2020 and 2019 and our consolidated statements of income, comprehensive income, stockholders\u2019 equity, and cash flows for each of the three years ended December 31, 2020, 2019 and 2018.\nWe were incorporated in Delaware in November 2000. Our principal executive office is located at 899 Kifer Road, Sunnyvale, California 94086 and our telephone number at that location is (408) 235-7700.\nTechnology and Architecture\nThe Fortinet Security Fabric platform helps organizations secure their environments and reduce their security and network complexities. The Fortinet Security Fabric platform has an open architecture designed to connect Fortinet solutions and third-party solutions into a single ecosystem, enabling integration and automation.\nOur product offerings consist of our FortiGate network security product family and our non-FortiGate products. Our FortiGate hardware and software licenses are sold with a set of security services in addition to networking features and are run using our proprietary FortiOS operating system. Our security services are enabled by FortiGuard Labs, which provides threat research and artificial intelligence capabilities from a cloud network to deliver protection services to each FortiGate appliance and virtual machine that is registered by the end-customer. All these are combined to form the Fortinet Security Fabric platform, which is an approach to security that ties discrete security solutions together into an integrated whole."
+          },
+          {
+            "chunk_id": "6044be8c3e40f726",
+            "citation_label": "SYNOPSYS INC 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 4,
+            "sparse_rank": null,
+            "rrf_score": 0.015625,
+            "rerank_score": -8.27,
+            "final_rank": 3,
+            "text": "t improve the security, quality and compliance of software in a wide variety of industries, including electronics, financial services, automotive, medicine, energy and industrials. These tools and services are part of our Software Integrity segment.\nCorporate Information\nWe incorporated in 1986 in North Carolina and reincorporated in 1987 in Delaware. Our headquarters are located at 690 East Middlefield Road, Mountain View, California 94043, and our headquarters\u2019 telephone number is (650) 584-5000. We have approximately 125 offices worldwide.\nOur annual and quarterly reports on Forms 10-K and 10-Q (including related filings in XBRL format), current reports on Form 8-K, and Proxy Statements relating to our annual meetings of stockholders (including any amendments to these reports, as well as filings made by our executive officers and directors) are available through the Investor Relations page of our website (www.synopsys.com) free of charge as soon as practicable after we file them with, or furnish them to, the SEC (www.sec.gov). We use our Investor Relations page as a routine channel for distribution of important information, including news releases, investor presentations, and financial information. The contents of our website are not part of this Form 10-K.\nBackground\nIn this era of Smart Everything, we have seen a remarkable proliferation of consumer and wireless electronic products, particularly mobile devices. The growth of the Internet and cloud computing has provided people with new ways to create, store, and share information."
+          },
+          {
+            "chunk_id": "1be2b0655b38c7d4",
+            "citation_label": "LIVEPERSON INC 10-K 2020 \u00b7 Item 1 Business",
+            "retrievers": [
+              "sparse"
+            ],
+            "dense_rank": null,
+            "sparse_rank": 27,
+            "rrf_score": 0.011494,
+            "rerank_score": -9.1397,
+            "final_rank": 4,
+            "text": "guage over conversational interfaces such as SMS, Messenger, Apple Business Chat, Google\u2019s Rich Business Messenger, and in-home personal assistants like Alexa, in order to get answers to questions, make purchases and resolve customer care inquiries. These conversational messaging capabilities target lower costs and increased customer satisfaction, retention and revenue by utilizing human agents, AI and bots to provide convenient, personalized and content-rich communication as alternatives to calling a 1-800 number, navigating a website or downloading an app.\nOur view is that once a consumer has established their favorite brands as contacts in their preferred messaging app, they will no longer see a need to call that brand\u2019s 1-800 number, visit their website or download their app. Instead, they will simply select the contact, open up the thread with their entire history with the brand, and then renew the conversation. As a result, the billions of dollars previously invested by brands across these legacy channels will be increasingly allocated to experiences powered by our platform.\nHistorically, brands have predominantly promoted calling the 1-800 number or using email as the primary means of contact with consumers. According to a 2018 IBM report, approximately 270 billion customer service calls are made to contact centers each year. With a median cost per call of approximately $5.60, according to US Contact Center Decision-Makers' Guide, we estimate that businesses spend approximately $1.5 trillion annually to support their 1-800 number call centers."
+          },
+          {
+            "chunk_id": "aa0325414822a3d7",
+            "citation_label": "INTUIT INC 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 6,
+            "sparse_rank": null,
+            "rrf_score": 0.015152,
+            "rerank_score": -9.1823,
+            "final_rank": 5,
+            "text": "in telephone number is 650-944-6000. When we refer to \u201cwe,\u201d \u201cour\u201d or \u201cIntuit\u201d in this Annual Report on Form 10-K, we mean the current Delaware corporation (Intuit Inc.) and its California predecessor, as well as all of our consolidated subsidiaries.\nAvailable Information\nOur corporate website, www.intuit.com, provides materials for investors and information relating to Intuit\u2019s corporate governance. The content on any website referred to in this filing is not incorporated by reference into this filing unless expressly noted otherwise.\nWe file reports required of public companies with the Securities and Exchange Commission (SEC). These include annual reports on Form 10-K, quarterly reports on Form 10-Q, current reports on Form 8-K, proxy statements and other reports, and amendments to these reports. The SEC maintains a website at www.sec.gov that contains reports, proxy and information statements, and other information regarding issuers that file electronically with the SEC. We make available free of charge on the Investor Relations section of our corporate website all of the reports we file with or furnish to the SEC as soon as reasonably practicable after the reports are filed or furnished. Copies of this Annual Report on Form 10-K may also be obtained without charge by contacting Investor Relations, Intuit Inc., P.O. Box 7850, Mountain View, California 94039-7850 or by calling 650-944-6000 or by emailing investor_relations@intuit.com.\nBUSINESS OVERVIEW\nIntuit\u2019s Mission\nAt Intuit, our mission is to power prosperity around the world."
+          },
+          {
+            "chunk_id": "339b77ccca25739f",
+            "citation_label": "INTUIT INC 10-K 2021 \u00b7 Item 1 Business",
+            "retrievers": [
+              "dense"
+            ],
+            "dense_rank": 11,
+            "sparse_rank": null,
+            "rrf_score": 0.014085,
+            "rerank_score": -9.4778,
+            "final_rank": 6,
+            "text": "r Relations, Intuit Inc., P.O. Box 7850, Mountain View, California 94039-7850 or by calling 650-944-6000 or by emailing investor_relations@intuit.com.\nBUSINESS OVERVIEW\nIntuit\u2019s Mission\nAt Intuit, our mission is to power prosperity around the world. All of our customers have a common set of needs. They are trying to make ends meet, maximize their tax refund, save money and pay off debt.\nThose who have made the bold decision to become entrepreneurs, and go into business for themselves, have an additional set of needs. They want to find and keep customers, get paid for their hard work, access capital to grow and ensure their books are right.\nAcross our platform, we use the power of technology to deliver three core benefits to our customers: helping put more money in their pockets, eliminating work and saving people time so they can focus on what matters to them, and ensuring that they have complete confidence in every financial decision they make.\nThe rise of Artificial Intelligence (AI) is fundamentally reshaping our world - and Intuit is taking advantage of this technological revolution to find new ways to deliver on our mission. We are focused on capitalizing on this opportunity to improve prosperity globally and inspire our workforce, while investing in our company\u2019s reputation and durable growth in the future."
+          }
+        ]
+      },
+      "elapsed_seconds": 250.42
+    }
+  ]
+}

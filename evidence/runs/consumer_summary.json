@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-08-05T23:50:30.061516+00:00",
+  "source_topic": "market.quotes.raw",
+  "dead_letter_topic": "market.quotes.dlq",
+  "landing_file": "/workspaces/financial-market-intelligence/data/landing/valid/quotes_20260805T235013Z.jsonl",
+  "quarantine_file": "/workspaces/financial-market-intelligence/data/quarantine/quotes/rejected_20260805T235013Z.jsonl",
+  "consumed": 25000,
+  "accepted": 22996,
+  "rejected": 2004,
+  "acceptance_rate": 0.9198,
+  "rejections_by_reason": {
+    "FUTURE_DATED": 167,
+    "INVALID_TICKER": 170,
+    "INVALID_TIMESTAMP": 168,
+    "MALFORMED_JSON": 168,
+    "MISSING_FIELD": 307,
+    "NEGATIVE_VOLUME": 184,
+    "NON_POSITIVE_PRICE": 321,
+    "OHLC_INCONSISTENT": 184,
+    "WRONG_TYPE": 335
+  }
+}

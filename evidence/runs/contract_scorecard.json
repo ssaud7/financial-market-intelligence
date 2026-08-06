@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-08-05T23:50:51.085618+00:00",
+  "messages_produced": 25000,
+  "messages_consumed": 25000,
+  "messages_accepted": 22996,
+  "messages_rejected": 2004,
+  "faults_injected_total": 2004,
+  "faults_escaped_total": 0,
+  "contract_catch_rate": 1.0,
+  "organic_rejections": 0,
+  "per_fault": [
+    {
+      "fault": "blank_ticker",
+      "injected": 170,
+      "quarantined": 170,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "corrupt_timestamp",
+      "injected": 168,
+      "quarantined": 168,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "future_date",
+      "injected": 167,
+      "quarantined": 167,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "high_below_low",
+      "injected": 184,
+      "quarantined": 184,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "missing_close",
+      "injected": 166,
+      "quarantined": 166,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "missing_ticker",
+      "injected": 141,
+      "quarantined": 141,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "negative_price",
+      "injected": 164,
+      "quarantined": 164,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "negative_volume",
+      "injected": 184,
+      "quarantined": 184,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "non_numeric_price",
+      "injected": 169,
+      "quarantined": 169,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "truncated_json",
+      "injected": 168,
+      "quarantined": 168,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "unexpected_field",
+      "injected": 166,
+      "quarantined": 166,
+      "escaped": 0,
+      "catch_rate": 1.0
+    },
+    {
+      "fault": "zero_price",
+      "injected": 157,
+      "quarantined": 157,
+      "escaped": 0,
+      "catch_rate": 1.0
+    }
+  ],
+  "misclassified_sample": [],
+  "misclassified_total": 0,
+  "rejections_by_reason": {
+    "FUTURE_DATED": 167,
+    "INVALID_TICKER": 170,
+    "INVALID_TIMESTAMP": 168,
+    "MALFORMED_JSON": 168,
+    "MISSING_FIELD": 307,
+    "NEGATIVE_VOLUME": 184,
+    "NON_POSITIVE_PRICE": 321,
+    "OHLC_INCONSISTENT": 184,
+    "WRONG_TYPE": 335
+  }
+}
