@@ -1,9 +1,18 @@
 """Structured logging shared by every stage.
 
 Console output stays human-readable for the terminal, while a JSONL copy of
-every event is appended under ``evidence/logs/`` so a completed run leaves
-behind machine-readable proof of what happened — including the rejection reason
-for each quarantined record.
+every event is appended to ``evidence/logs/pipeline.jsonl`` so a completed run
+leaves behind machine-readable proof of what happened — including the rejection
+reason for each quarantined record.
+
+**One file, not one per stage.** structlog routes through a single root logger,
+so every handler receives every record regardless of which module emitted it.
+Naming the file after the calling stage therefore produced a file whose name
+described only whichever stage happened to initialise logging first in that
+process — RAG events landing in ``lineage.jsonl``, for instance. Every record
+already carries a ``stage`` field, so filtering is a ``grep`` away:
+
+    jq -c 'select(.stage == "consumer")' evidence/logs/pipeline.jsonl
 """
 
 from __future__ import annotations
@@ -32,7 +41,7 @@ def configure_logging(stage: str, level: int = logging.INFO) -> structlog.BoundL
         console.setFormatter(
             logging.Formatter("%(message)s"),
         )
-        file_handler = logging.FileHandler(log_dir / f"{stage}.jsonl", encoding="utf-8")
+        file_handler = logging.FileHandler(log_dir / "pipeline.jsonl", encoding="utf-8")
         file_handler.setFormatter(logging.Formatter("%(message)s"))
 
         root = logging.getLogger()

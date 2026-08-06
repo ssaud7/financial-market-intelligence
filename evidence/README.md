@@ -15,7 +15,8 @@ code so a grader can see the results without executing anything.
 | `runs/rag_index.json` | `fmis rag-index` | Filings parsed, chunks produced, embedding dimensions, collection size. |
 | `runs/rag_answers.{json,md}` | `fmis rag-demo` | Each answer with its citations, plus the full retrieval trail: dense ranks, BM25 ranks, RRF scores, and what the cross-encoder promoted or demoted. |
 | `lineage/openlineage-events.jsonl` | every stage | One `START` / `COMPLETE` / `FAIL` event per stage, with dataset inputs and outputs. |
-| `logs/*.jsonl` | every stage | Structured per-stage logs, one JSON object per line — including the rejection reason for each quarantined record. |
+| `runs/airflow_gate_failure_dag.md` | `airflow dags test` | Task states from the failure DAG run: the gate `failed` and `gold_merge_must_not_run` is `upstream_failed` with identical start/end timestamps — Airflow never executed it. |
+| `logs/pipeline.jsonl` | every stage | One JSON object per line across all stages, including the rejection reason for each quarantined record. Filter by stage: `jq -c 'select(.stage == "consumer")' evidence/logs/pipeline.jsonl` |
 | `screenshots/` | you | Airflow graph views: the production DAG all green, and the failure DAG with `gold_merge_must_not_run` **skipped**. |
 
 ## Regenerating
