@@ -26,6 +26,7 @@ from pyspark.sql import functions as F
 from pyspark.sql.window import Window
 
 from fmis.config import settings
+from fmis.evidence import write_run_evidence
 from fmis.lakehouse.bronze import conform_to_schema
 from fmis.lakehouse.schemas import GOLD_SCHEMA
 from fmis.lakehouse.session import delta_history, get_spark, table_exists
@@ -204,6 +205,11 @@ def merge_gold() -> dict[str, Any]:
             gold_rows_after=rows_after,
         )
         metrics_df.unpersist()
+
+        # The insert/update split is the evidence that this is a real upsert on
+        # the business key rather than an overwrite, so it is persisted rather
+        # than left only in the logs.
+        write_run_evidence("gold_merge", result)
 
     log.info(
         "gold.merged",

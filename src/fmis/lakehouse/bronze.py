@@ -21,6 +21,7 @@ from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql import functions as F
 
 from fmis.config import settings
+from fmis.evidence import write_run_evidence
 from fmis.lakehouse.schemas import BRONZE_SCHEMA
 from fmis.lakehouse.session import delta_history, get_spark, table_exists
 from fmis.lineage import dataset, lineage_run
@@ -115,6 +116,7 @@ def load_bronze(*, landing_dir: Path | None = None, batch_id: str | None = None)
             "history": delta_history(settings.bronze_path, limit=3),
         }
         run.record(rows_appended=row_count, rows_total=total_rows, batch_id=batch_id)
+        write_run_evidence("bronze_load", result)
 
     log.info(
         "bronze.loaded",

@@ -24,6 +24,7 @@ from pyspark.sql import functions as F
 from pyspark.sql.window import Window
 
 from fmis.config import settings
+from fmis.evidence import write_run_evidence
 from fmis.lakehouse.bronze import conform_to_schema
 from fmis.lakehouse.schemas import QUOTE_PAYLOAD_SCHEMA, SILVER_CONSTRAINTS, SILVER_SCHEMA
 from fmis.lakehouse.session import delta_history, get_spark, table_exists
@@ -181,6 +182,7 @@ def build_silver() -> dict[str, Any]:
             "history": history,
         }
         run.record(**{k: v for k, v in result.items() if isinstance(v, (int, str))})
+        write_run_evidence("silver_transform", result)
 
     log.info("silver.built", **{k: v for k, v in result.items() if isinstance(v, (int, str))})
     return result
