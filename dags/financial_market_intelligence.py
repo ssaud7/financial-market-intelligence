@@ -48,9 +48,11 @@ DEFAULT_ARGS = {
 }
 
 # Every stage in one DAG run shares this id, so the OpenLineage events emitted
-# by the pipeline code group into a single parent run in Marquez.
+# by the pipeline code group into a single parent run in Marquez. The raw
+# Airflow run id is passed through as-is; fmis.lineage hashes it into a
+# deterministic UUID, which is what the OpenLineage spec requires.
 STAGE_ENV = {
-    "FMIS_PIPELINE_RUN_ID": "{{ run_id | replace('+', '_') | replace(':', '-') }}",
+    "FMIS_PIPELINE_RUN_ID": "{{ run_id }}",
     "FMIS_REPO_ROOT": REPO_ROOT,
 }
 

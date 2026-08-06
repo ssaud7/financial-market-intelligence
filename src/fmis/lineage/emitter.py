@@ -68,10 +68,21 @@ def pipeline_run_id() -> str:
 
     Airflow exports ``FMIS_PIPELINE_RUN_ID`` once per DAG run; a standalone
     ``fmis`` invocation gets a fresh one.
+
+    OpenLineage requires run ids to be UUIDs, but an Airflow run id is not one
+    — it looks like ``manual__2026-08-07T00:00:00+00:00``. Passing it through
+    raised ``ValueError: badly formed hexadecimal UUID string`` and failed the
+    task. A non-UUID value is therefore hashed into a deterministic UUIDv5, so
+    every stage in the same DAG run still resolves to the same parent while
+    satisfying the spec.
     """
     existing = os.environ.get("FMIS_PIPELINE_RUN_ID")
     if existing:
-        return existing
+        try:
+            return str(uuid.UUID(existing))
+        except ValueError:
+            return str(uuid.uuid5(uuid.NAMESPACE_URL, existing))
+
     generated = str(uuid.uuid4())
     os.environ["FMIS_PIPELINE_RUN_ID"] = generated
     return generated
