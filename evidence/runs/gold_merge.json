@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-08-06T12:36:03.559750+00:00",
+  "silver_rows_scanned": 22996,
+  "aggregate_rows_computed": 16,
+  "gold_rows_before": 16,
+  "gold_rows_after": 16,
+  "rows_inserted": 0,
+  "rows_updated": 16,
+  "rows_deleted": 0,
+  "operation": "MERGE",
+  "path": "/workspaces/financial-market-intelligence/data/lakehouse/gold/ticker_metrics",
+  "aggregation": {
+    "grain": "one row per ticker",
+    "business_key": "ticker",
+    "moving_average_sessions": 30,
+    "volatility_annualisation_sessions": 252
+  },
+  "history": [
+    {
+      "version": 3,
+      "timestamp": "2026-08-06 12:36:00.659000",
+      "operation": "MERGE",
+      "operationMetrics": {
+        "numOutputRows": "16",
+        "numTargetBytesAdded": "6112",
+        "numTargetRowsInserted": "0",
+        "numTargetFilesAdded": "1",
+        "numTargetRowsMatchedDeleted": "0",
+        "numTargetFilesRemoved": "1",
+        "numTargetRowsMatchedUpdated": "16",
+        "executionTimeMs": "3763",
+        "numTargetDeletionVectorsUpdated": "0",
+        "numTargetRowsCopied": "0",
+        "rewriteTimeMs": "967",
+        "numTargetRowsUpdated": "16",
+        "numTargetDeletionVectorsRemoved": "0",
+        "numTargetRowsDeleted": "0",
+        "scanTimeMs": "1562",
+        "numSourceRows": "16",
+        "numTargetDeletionVectorsAdded": "0",
+        "numTargetChangeFilesAdded": "0",
+        "numTargetRowsNotMatchedBySourceUpdated": "0",
+        "numTargetRowsNotMatchedBySourceDeleted": "0",
+        "numTargetBytesRemoved": "6112"
+      }
+    }
+  ]
+}

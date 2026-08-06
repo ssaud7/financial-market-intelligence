@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-08-06T12:35:16.282933+00:00",
+  "rows_parsed": 22996,
+  "rows_unparseable": 0,
+  "duplicates_collapsed": 0,
+  "rows_merged_from": 22996,
+  "rows_inserted": 0,
+  "rows_updated": 22996,
+  "rows_total": 22996,
+  "constraints": {
+    "high_ge_low": "high >= low",
+    "close_within_session_range": "close >= low AND close <= high",
+    "open_within_session_range": "open >= low AND open <= high",
+    "prices_positive": "open > 0 AND high > 0 AND low > 0 AND close > 0",
+    "volume_non_negative": "volume >= 0"
+  },
+  "path": "/workspaces/financial-market-intelligence/data/lakehouse/silver/quotes",
+  "history": [
+    {
+      "version": 7,
+      "timestamp": "2026-08-06 12:35:12.890000",
+      "operation": "MERGE",
+      "operationMetrics": {
+        "numOutputRows": "22996",
+        "numTargetBytesAdded": "985337",
+        "numTargetRowsInserted": "0",
+        "numTargetFilesAdded": "16",
+        "numTargetRowsMatchedDeleted": "0",
+        "numTargetFilesRemoved": "16",
+        "numTargetRowsMatchedUpdated": "22996",
+        "executionTimeMs": "6733",
+        "numTargetDeletionVectorsUpdated": "0",
+        "numTargetRowsCopied": "0",
+        "rewriteTimeMs": "2306",
+        "numTargetRowsUpdated": "22996",
+        "numTargetDeletionVectorsRemoved": "0",
+        "numTargetRowsDeleted": "0",
+        "scanTimeMs": "4177",
+        "numSourceRows": "22996",
+        "numTargetDeletionVectorsAdded": "0",
+        "numTargetChangeFilesAdded": "0",
+        "numTargetRowsNotMatchedBySourceUpdated": "0",
+        "numTargetRowsNotMatchedBySourceDeleted": "0",
+        "numTargetBytesRemoved": "992818"
+      }
+    }
+  ]
+}
