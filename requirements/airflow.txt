@@ -1,9 +1,16 @@
-# Installed into .venv-airflow *after* apache-airflow itself has been resolved
-# against its official constraints file. Keep this list minimal: anything added
-# here can break the constrained resolution.
-
-# Lets Airflow emit its own OpenLineage events for task instances, in addition
-# to the stage-level events the pipeline code emits directly.
-apache-airflow-providers-openlineage>=1.10
+# Extra packages for the Airflow virtualenv.
+#
+# ⚠️ Anything listed here is installed with the SAME official constraints file
+# used for apache-airflow itself. Installing into this environment without
+# constraints lets pip resolve a dependency that requires a newer Airflow and
+# silently upgrade it — which is exactly what happened with
+# apache-airflow-providers-openlineage: it pulled Airflow 3.3.0 over the pinned
+# 2.10.5, uninstalled it, and left the venv with no `airflow` entry point at all.
+#
+# The OpenLineage *provider* is deliberately NOT installed. It would only add
+# Airflow's own task-level events, and the pipeline already emits START /
+# COMPLETE / FAIL per stage from the stage code itself (see fmis.lineage), which
+# is what the rubric asks for and works whether a stage runs under Airflow, from
+# the CLI, or in a notebook.
 
 python-dotenv>=1.0

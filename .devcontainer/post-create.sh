@@ -29,12 +29,25 @@ $PY -m venv "$APP_VENV"
 "$APP_VENV/bin/pip" install -e .
 
 echo "==> Creating Airflow virtualenv at $AIRFLOW_VENV"
+CONSTRAINTS="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_TAG}.txt"
+
 $PY -m venv "$AIRFLOW_VENV"
 "$AIRFLOW_VENV/bin/pip" install --upgrade pip setuptools wheel
-"$AIRFLOW_VENV/bin/pip" install \
-  "apache-airflow==${AIRFLOW_VERSION}" \
-  --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_TAG}.txt"
-"$AIRFLOW_VENV/bin/pip" install -r requirements/airflow.txt
+"$AIRFLOW_VENV/bin/pip" install "apache-airflow==${AIRFLOW_VERSION}" --constraint "$CONSTRAINTS"
+# The constraints MUST be applied here too. Without them pip is free to satisfy
+# a dependency by upgrading Airflow itself, which silently replaces the pinned
+# version and can leave the venv without an `airflow` entry point.
+"$AIRFLOW_VENV/bin/pip" install -r requirements/airflow.txt --constraint "$CONSTRAINTS"
+
+# Fail loudly here rather than at `make airflow-init`, where a missing binary
+# looks like a Makefile problem instead of a resolution problem.
+INSTALLED_AIRFLOW="$("$AIRFLOW_VENV/bin/airflow" version 2>/dev/null || echo MISSING)"
+if [ "$INSTALLED_AIRFLOW" != "$AIRFLOW_VERSION" ]; then
+  echo "ERROR: expected Airflow ${AIRFLOW_VERSION}, found '${INSTALLED_AIRFLOW}'." >&2
+  echo "       Something in requirements/airflow.txt pulled a different version." >&2
+  exit 1
+fi
+echo "    Airflow ${INSTALLED_AIRFLOW} pinned successfully"
 
 echo "==> Creating runtime directories"
 mkdir -p data/raw data/landing data/quarantine data/lakehouse data/vectorstore \
