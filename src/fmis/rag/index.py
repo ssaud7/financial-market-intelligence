@@ -99,6 +99,9 @@ def get_chroma_collection(*, reset: bool = False):
 class IndexStats:
     filings: int
     chunks: int
+    chunks_embedded: int
+    chunks_reused: int
+    chunks_removed: int
     vector_dimensions: int
     collection_count: int
     bm25_corpus_path: str
@@ -108,11 +111,27 @@ class IndexStats:
         return {
             "filings": self.filings,
             "chunks": self.chunks,
+            "chunks_embedded": self.chunks_embedded,
+            "chunks_reused": self.chunks_reused,
+            "chunks_removed": self.chunks_removed,
             "vector_dimensions": self.vector_dimensions,
             "collection_count": self.collection_count,
             "bm25_corpus_path": self.bm25_corpus_path,
             "chroma_path": self.chroma_path,
         }
+
+
+def _existing_chunk_ids(collection) -> set[str]:
+    """IDs already in the collection.
+
+    ``include=[]`` asks Chroma for identifiers only — fetching documents and
+    embeddings back just to compare keys would defeat the point.
+    """
+    try:
+        return set(collection.get(include=[]).get("ids") or [])
+    except Exception as exc:  # noqa: BLE001 - an unreadable collection is rebuildable
+        log.warning("rag.existing_ids_unavailable", error=str(exc))
+        return set()
 
 
 def _write_bm25_corpus(chunks: list[Chunk]) -> None:
@@ -133,8 +152,24 @@ def _write_bm25_corpus(chunks: list[Chunk]) -> None:
     log.info("rag.bm25_corpus_written", path=str(target), chunks=len(chunks))
 
 
-def build_index(*, reset: bool = True, filing_limit: int | None = None) -> dict[str, Any]:
-    """Parse, chunk, embed and index every filing under ``data/raw``."""
+def build_index(*, reset: bool = False, filing_limit: int | None = None) -> dict[str, Any]:
+    """Parse, chunk and index the filings under ``data/raw``.
+
+    **Incremental by default.** Chunk IDs are content-addressed (a hash of the
+    source file, section and text), so a chunk whose text has not changed keeps
+    the same ID across runs. Only IDs missing from the collection are embedded,
+    and IDs no longer produced by the corpus are deleted — which makes this a
+    sync rather than an append.
+
+    That matters because embedding is by far the slowest part of the pipeline:
+    the initial build of ~5,800 chunks takes ~17 minutes on a CPU-only
+    Codespace, while re-running it against an unchanged corpus now costs
+    seconds. Editing or adding a filing re-embeds only what actually changed.
+
+    Pass ``reset=True`` to wipe the collection and rebuild from scratch — worth
+    doing after changing the embedding model or the chunking parameters, since
+    neither is captured by the chunk ID.
+    """
     settings.ensure_directories()
 
     with lineage_run(
@@ -150,20 +185,49 @@ def build_index(*, reset: bool = True, filing_limit: int | None = None) -> dict[
 
         collection = get_chroma_collection(reset=reset)
 
-        vectors = embed_passages([c.text for c in chunks])
-        collection.upsert(
-            ids=[c.chunk_id for c in chunks],
-            embeddings=vectors,
-            documents=[c.text for c in chunks],
-            metadatas=[c.as_metadata() for c in chunks],
-        )
+        existing = set() if reset else _existing_chunk_ids(collection)
+        current_ids = {c.chunk_id for c in chunks}
 
+        pending = [c for c in chunks if c.chunk_id not in existing]
+        stale = sorted(existing - current_ids)
+
+        if stale:
+            # Filings removed from the corpus must not keep answering queries.
+            collection.delete(ids=stale)
+            log.info("rag.stale_chunks_removed", count=len(stale))
+
+        vectors: list[list[float]] = []
+        if pending:
+            log.info(
+                "rag.embedding",
+                to_embed=len(pending),
+                reused=len(chunks) - len(pending),
+            )
+            vectors = embed_passages([c.text for c in pending])
+            collection.upsert(
+                ids=[c.chunk_id for c in pending],
+                embeddings=vectors,
+                documents=[c.text for c in pending],
+                metadatas=[c.as_metadata() for c in pending],
+            )
+        else:
+            log.info("rag.nothing_to_embed", chunks=len(chunks))
+
+        # The BM25 corpus is plain text, so rewriting it wholesale is cheap and
+        # guarantees the sparse index cannot drift from the dense one.
         _write_bm25_corpus(chunks)
 
         stats = IndexStats(
             filings=len(filings),
             chunks=len(chunks),
-            vector_dimensions=len(vectors[0]) if vectors else 0,
+            chunks_embedded=len(pending),
+            chunks_reused=len(chunks) - len(pending),
+            chunks_removed=len(stale),
+            # Dimensions come from the model, so read them back when nothing
+            # was embedded this run.
+            vector_dimensions=(
+                len(vectors[0]) if vectors else get_embedder().get_sentence_embedding_dimension()
+            ),
             collection_count=collection.count(),
             bm25_corpus_path=str(settings.bm25_path),
             chroma_path=str(settings.chroma_path),

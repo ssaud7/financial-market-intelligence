@@ -349,16 +349,32 @@ The lineage graph is then browsable at `http://localhost:3000`.
 
 ## Performance notes
 
-Codespaces is CPU-only. Approximate timings on a 4-core / 16 GB machine:
+Codespaces is CPU-only — no GPU. Measured on a 4-core / 16 GB `standardLinux32gb`:
 
-| Stage | Time |
-| --- | --- |
-| Produce + consume 25k quotes | ~90 s |
-| Bronze → Silver → Gold | ~3 min (most of it Spark startup) |
-| Index 25 filings (~5,800 chunks) | ~5 min (embedding is the bottleneck) |
-| One RAG answer | 1–3 min on a 7B model, ~30 s on a 3B |
+| Stage | First run | Repeat run |
+| --- | --- | --- |
+| Produce 25k quotes | ~5 s (5,372 msg/s) | same |
+| Consume + validate 25k | ~17 s | same |
+| Bronze → Silver → Gold | ~2 min | same (mostly Spark JVM startup) |
+| Index 25 filings (5,773 chunks) | **~17 min** | **seconds** — unchanged chunks are reused |
+| One RAG answer (7B) | ~5 min | ~5 min |
 
-Set `OLLAMA_MODEL=llama3.2:3b-instruct-q4_K_M` while iterating; use the 7B for the run you
+**Embedding dominates the first run, and generation dominates every run after it.**
+Neither is Ollama's fault alone: the 17 minutes is `sentence-transformers` on CPU, which you
+would pay with a hosted LLM too.
+
+Two things keep repeat runs cheap:
+
+- **The index is persistent and incremental.** Chunk IDs are content-addressed, so
+  `fmis rag-index` re-embeds only chunks that actually changed and deletes ones no longer
+  produced. Re-indexing an unchanged corpus costs seconds. Use `--reset` only after changing
+  the embedding model or chunking parameters, since neither is captured by the chunk ID.
+- **Asking a question skips indexing entirely.** `fmis rag-ask "..."` queries the existing
+  store, so you pay generation only.
+
+If generation latency is the problem while iterating, set
+`OLLAMA_MODEL=llama3.2:3b-instruct-q4_K_M` (roughly 3–4× faster, weaker grounding on dense
+legal prose) or lower `RAG_RERANK_TOP_N` to shrink the prompt. Use the 7B for any run you
 capture as evidence.
 
 ---

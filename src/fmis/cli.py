@@ -181,10 +181,18 @@ def quality_gate(
 
 @app.command("rag-index")
 def rag_index(
-    reset: bool = typer.Option(True, help="Rebuild the vector store from scratch."),
+    reset: bool = typer.Option(
+        False,
+        "--reset",
+        help=(
+            "Wipe the vector store and re-embed everything. Only needed after "
+            "changing the embedding model or chunking parameters — by default "
+            "unchanged chunks are reused, which makes a re-index near-instant."
+        ),
+    ),
     filing_limit: Optional[int] = typer.Option(None, help="Index at most N filings."),
 ) -> None:
-    """Parse, chunk, embed and index the 10-K filings."""
+    """Parse, chunk, embed and index the 10-K filings (incremental by default)."""
     from fmis.rag.index import build_index
 
     _emit("Index built", build_index(reset=reset, filing_limit=filing_limit))
