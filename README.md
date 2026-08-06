@@ -9,6 +9,20 @@ wrong, the pipeline stops rather than publishing it.
 
 Built for the **SDAIA Academy** capstone *Modern Data Engineering for AI Systems*.
 
+> ### Reviewing this? Start with [`evidence/`](evidence/)
+>
+> Every artefact there is committed output from a **real end-to-end run**, not a
+> description of one. The four most direct:
+>
+> | Claim | Proof |
+> | --- | --- |
+> | The data contract catches everything it should | [`contract_scorecard.md`](evidence/runs/contract_scorecard.md) — 12 injected fault types, **0 escaped** |
+> | Gold is a genuine aggregate, maintained by MERGE | [`gold_table.md`](evidence/runs/gold_table.md) — 16 computed rows vs Silver's 22,996 |
+> | A failed quality gate halts the pipeline | [`airflow_gate_failure_dag.md`](evidence/runs/airflow_gate_failure_dag.md) — `gold_merge` never executed |
+> | Answers are grounded and cited, and refuse when they can't be | [`rag_answers.md`](evidence/runs/rag_answers.md) |
+>
+> [`evidence/README.md`](evidence/README.md) explains what every artefact proves.
+
 ---
 
 ## The problem this solves
