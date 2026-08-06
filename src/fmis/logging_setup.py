@@ -18,6 +18,7 @@ already carries a ``stage`` field, so filtering is a ``grep`` away:
 from __future__ import annotations
 
 import logging
+import os
 import sys
 from pathlib import Path
 
@@ -33,21 +34,27 @@ def configure_logging(stage: str, level: int = logging.INFO) -> structlog.BoundL
     global _CONFIGURED
 
     if not _CONFIGURED:
+        # Tests exercise the same code paths as a real run, so without this a
+        # `pytest` invocation appends synthetic records to the committed
+        # evidence file and quietly corrupts the record of an actual run.
+        under_test = "PYTEST_CURRENT_TEST" in os.environ or "pytest" in sys.modules
+
         log_dir: Path = settings.evidence_root / "logs"
-        log_dir.mkdir(parents=True, exist_ok=True)
+        if not under_test:
+            log_dir.mkdir(parents=True, exist_ok=True)
 
         # Console handler: pretty. File handler: one JSON object per line.
         console = logging.StreamHandler(sys.stdout)
         console.setFormatter(
             logging.Formatter("%(message)s"),
         )
-        file_handler = logging.FileHandler(log_dir / "pipeline.jsonl", encoding="utf-8")
-        file_handler.setFormatter(logging.Formatter("%(message)s"))
-
         root = logging.getLogger()
         root.handlers.clear()
         root.addHandler(console)
-        root.addHandler(file_handler)
+        if not under_test:
+            file_handler = logging.FileHandler(log_dir / "pipeline.jsonl", encoding="utf-8")
+            file_handler.setFormatter(logging.Formatter("%(message)s"))
+            root.addHandler(file_handler)
         root.setLevel(level)
 
         # Quieten the noisy dependencies so pipeline events stay readable.
