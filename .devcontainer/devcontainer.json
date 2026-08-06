@@ -30,12 +30,15 @@
     "storage": "32gb"
   },
 
+  // ${containerWorkspaceFolder} rather than a hardcoded path: the folder is
+  // named after the repository, so any clone under a different directory name
+  // would otherwise point these at a path that does not exist.
   "containerEnv": {
     "PYTHONUNBUFFERED": "1",
     "PYTHONDONTWRITEBYTECODE": "1",
-    "PYSPARK_PYTHON": "/workspaces/Finance/.venv-app/bin/python",
-    "PYSPARK_DRIVER_PYTHON": "/workspaces/Finance/.venv-app/bin/python",
-    "AIRFLOW_HOME": "/workspaces/Finance/airflow",
+    "PYSPARK_PYTHON": "${containerWorkspaceFolder}/.venv-app/bin/python",
+    "PYSPARK_DRIVER_PYTHON": "${containerWorkspaceFolder}/.venv-app/bin/python",
+    "AIRFLOW_HOME": "${containerWorkspaceFolder}/airflow",
     "TOKENIZERS_PARALLELISM": "false"
   },
 
@@ -57,7 +60,7 @@
         "ms-azuretools.vscode-docker"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/workspaces/Finance/.venv-app/bin/python"
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv-app/bin/python"
       }
     }
   },
