@@ -432,7 +432,13 @@ Systems* program, delivered via Learning Space as a five-day capstone.
 - **Provider:** [SDAIA Academy](https://github.com/SDAIAAcademy), delivered via Learning Space
 - **Trainer:** Mohammed Albeladi
 - **Cohort / session dates:** 2 – 6 February 2026 (five-day capstone)
-- **Author:** Saud Alzahrani ([@ssaud7](https://github.com/ssaud7))
+
+### Team
+
+- Saud Alzahrani ([@ssaud7](https://github.com/ssaud7))
+- Abdulaziz Aldahlawi
+- Mohammed Alhaidri
+- Mohammed Aldibasi
 
 SDAIA Academy on GitHub: **https://github.com/SDAIAAcademy**
 
